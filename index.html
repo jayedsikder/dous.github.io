@@ -1,14 +1,322 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Jayed Sikder</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="st1.css">
+    <link rel="stylesheet" href="st2.css">
+    <link rel="stylesheet" href="sl.css">
+    <title>Server among us</title>
 </head>
 <body>
-    <a href="">Jayed</a>
+    <div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+          <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+          </a>
+          <a href="#home" class="w3-bar-item w3-button">HOME</a>
+          <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+          <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+          <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+            <i class="fa fa-search"></i>
+          </a>
+         
+        </div>
+      
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+          <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+          <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+          <a href="https://www.facebook.com/messages/t/4067569863335888" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+          <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+        </div>
+      </div>
+      
+      <!-- First Parallax Image with Logo Text -->
+      <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Server <span class="w3-hide-small">Among</span> Us</span>
+        </div>
+      </div>
+      
+      <div class="w3-content w3-container w3-padding-64" id="about">
+        <h3 class="w3-center">ABOUT US</h3>
+        <p class="w3-center"><em>We store our school works</em></p>
+        <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="w3-row">
+        <!--Docs -->
+          <div class="w3-col m6 w3-center w3-padding-large">
+            <p><b><i class="fa fa-user w3-margin-right"></i>We are Gregoryan</b></p><br>
+            <img src="logu.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="240" height="233">
+          </div>
+          <!--Docs -->
+          <div class="w3-col m6 w3-hide-small w3-padding-large">
+            <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        <p class="w3-large w3-center w3-padding-16">We are really good at:</p>
+        <p class="w3-wide"><i class="fa fa-camera"></i>Web development</p>
+        
+        <div class="w3-light-grey">
+          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:50%">40%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
+        
+        <div class="w3-light-grey">
+          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">75%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+        
+        <div class="w3-light-grey">
+          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">50%</div>
+        </div>
+      </div>
+      
+      <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+        
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">3+</span><br>
+            Members
+          </div>
+          <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">2+</span><br>
+            Projects Done
+          </div>
+          <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">2+</span><br>
+            Data Entry Members
+          </div>
+          <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">20+</span><br>
+            Meetings
+          </div>
+        
+      </div>
+      
+      <!-- Second Parallax Image with Portfolio Text -->
+    
+      <!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+    <h3 class="w3-center">Our WORKS</h3>
+    <p class="w3-center"><em>Here are our C.W, H.W & Other works.<br> Click on the images to make them bigger</em></p><br>
+    <body class="w3-light-grey">
+
+      <!-- w3-content defines a container for fixed size centered content, 
+      and is wrapped around the whole page content, except for the footer in this example -->
+      <div class="w3-content" style="max-width:1400px">
+      
+      <!-- Header -->
+      
+      
+      <!-- Grid -->
+      <div class="w3-row">
+      
+      <!-- Blog entries -->
+      <div class="w3-col l8 s12">
+        <!-- Blog entry -->
+        <div class="w3-card-4 w3-margin w3-white">
+          <img src="cw.jpg" alt="Nature" style="width:100%" >
+          <div class="w3-container">
+            <h3><b>9D</b></h3>
+            <h5>Title description, <span class="w3-opacity">September 6, 2014</span></h5>
+          </div>
+      
+          <div class="w3-container">
+            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
+              tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            <div class="w3-row">
+              <div class="w3-col m8 s12">
+                <p>
+                  
+
+
+                    <div class="dropdown">
+    
+                      <button class="dropbtn"><b> &nbsp; C.W &nbsp;»&nbsp;  </b></button>
+                      <div class="dropdown-content">
+                      <a href="#">Bangla 1</a>
+                      <a href="#">Bangla 2</a>
+                      <a href="#">English 1</a>
+                      </div>
+                    
+                    </div>
+
+                    
+
+                  </p>
+              </div>
+              <div class="w3-col m4 w3-hide-small">
+                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      
+        <!-- Blog entry -->
+        <div class="w3-card-4 w3-margin w3-white">
+        <img src="hw.jpg" alt="Norway" style="width:100%">
+          <div class="w3-container">
+            <h3><b>BLOG ENTRY</b></h3>
+            <h5>Title description, <span class="w3-opacity">April 2, 2014</span></h5>
+          </div>
+      
+          <div class="w3-container">
+            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
+              tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            <div class="w3-row">
+              <div class="w3-col m8 s12">
+                <p>
+
+                  <div class="dropdown">
+    
+                    <button class="dropbtn"><b> &nbsp; H.W &nbsp;»&nbsp;  </b></button>
+                    <div class="dropdown-content">
+                    <a href="#">Bangla 1</a>
+                    <a href="#">Bangla 2</a>
+                    <a href="#">English 1</a>
+                    </div>
+                  
+                  </div>
+
+               </p>
+              </div>
+              <div class="w3-col m4 w3-hide-small">
+                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- END BLOG ENTRIES -->
+      </div>
+      
+      <!-- Introduction menu -->
+      <div class="w3-col l4">
+        <!-- About Card -->
+        <div class="w3-card w3-margin w3-margin-top">
+        <img src="/w3images/avatar_g.jpg" style="width:100%">
+          <div class="w3-container w3-white">
+            <h4><b>Our Servises</b></h4>
+            <p>Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.</p>
+          </div>
+        </div><hr>
+        
+        <!-- Posts -->
+        <div class="w3-card w3-margin">
+          <div class="w3-container w3-padding">
+            <h4>The Developers</h4>
+          </div>
+          <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+              <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">Jayed Sikder</span><br>
+              <span>Web developer, Web Design & Data Entry</span>
+            </li>
+            <li class="w3-padding-16">
+              <img src="/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">Md. Akash</span><br>
+              <span>Data Entry</span>
+            </li> 
+            <li class="w3-padding-16">
+              <img src="/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">Sheikh Adnan Haque Mahin</span><br>
+              <span>Data Entry</span>
+            </li>   
+            <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+              <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">Nabil Shad Munim</span><br>
+              <span>Photoshop & Data Entry</span>
+            </li>  
+          </ul>
+        </div>
+        <hr> 
+      
+        
+      <!-- END Introduction Menu -->
+      </div>
+      
+      <!-- END GRID -->
+      </div><br>
+      
+      <!-- END w3-content -->
+      </div>
+      
+      <!-- Footer -->
+      <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+        <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+        <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+      </footer>
+      
+      </body>
+  
+  </div>
+  <!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Powered by <a href="#" title="Jayed Sikder" target="_blank" class="w3-hover-text-green">Jayed Sikder</a></p>
+  </footer>
+   
+  <script>
+  // Modal Image Gallery
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+  
+  // Change style of navbar on scroll
+  window.onscroll = function() {myFunction()};
+  function myFunction() {
+      var navbar = document.getElementById("myNavbar");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+      } else {
+          navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+      }
+  }
+  
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+  </script>
+  
+      
+
 </body>
 </html>
