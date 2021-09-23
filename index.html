@@ -16,6 +16,37 @@
     <link rel="stylesheet" href="st2.css">
     <link rel="stylesheet" href="sl.css">
     <title>Server among us</title>
+    <style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 2;
+}
+</style>
 </head>
 <body>
     <div class="w3-top">
@@ -28,9 +59,12 @@
           <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
             <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DEIVE</a>
           <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-          <a href="https://jayedsikder.github.io/amongus.github.io/" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-            <i class="fa fa-search"></i>
+          <div class="tooltip">
+            <a href="https://jayedsikder.github.io/amongus.github.io/" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+                
+            <i class="fa fa-search">  <span class="tooltiptext">My Anouther Web</span> </i>
           </a>
+              </div>
          
         </div>
       
