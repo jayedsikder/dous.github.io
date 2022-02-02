@@ -94,10 +94,40 @@
         <h3 class="w3-center">ABOUT US</h3>
         <p class="w3-center"><em>We store our school works</em></p>
         
-          <body>
-            <div class="container mt-3">
-            <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('demo').style.display='block'">Click Here To SHOW <b>10D</b> Class Rutine</button>
-            </div>
+      <div class="container mt-3">
+          
+          <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('demo').style.display='block'">SHOW <b>10D</b> Class Rutine</button>
+          
+          <button type="button" class="btn btn-outline-dark" id="toastbtn"> <i class="fas fa-clock"></i> Show Time</button>
+  
+  <div class="toast">
+    <div class="toast-header">
+      <strong class="me-auto">Warning... You need to reload to get original time</Warning></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      <p>
+        <p id="demo11"></p>
+
+<script>
+const d = new Date();
+d.setHours(12);
+document.getElementById("demo11").innerHTML = d;
+</script>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("toastbtn").onclick = function() {
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      var toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl)
+      })
+      toastList.forEach(toast => toast.show()) 
+    }
+    </script>
+              </div>
         <div id="demo" style="display:none">
         <div class="container mt-3">
             <table class="table  table-hover">
