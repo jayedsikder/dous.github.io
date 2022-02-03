@@ -9,4 +9,8 @@ function myTimer() {
       let day = days[d1.getDay()];
 
   document.getElementById("time3").innerHTML = day +" "+ d.toLocaleTimeString();
+  document.getElementById("time4").innerHTML = day +" "+ d.toLocaleTimeString();
+  document.getElementById("time5").innerHTML = day +" "+ d.toLocaleTimeString();
+  document.getElementById("time6").innerHTML = day +" "+ d.toLocaleTimeString();
+  document.getElementById("time7").innerHTML = day +" "+ d.toLocaleTimeString();
 }
