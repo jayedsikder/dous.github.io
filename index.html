@@ -368,7 +368,7 @@
     </div>
     <div class="toast-body">
       <p>
-        <p id="demo11"></p>
+        <p id="time2"></p>
 
 <script>
 const d = new Date();
@@ -869,6 +869,23 @@ document.getElementById("demo11").innerHTML = d;
       }
   }
   </script>
+
+  </script>
+  
+  <script>
+    setInterval(myTimer, 1000);
+    
+    function myTimer() {
+      const d = new Date();
+
+      const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          
+          const d1 = new Date();
+          let day = days[d1.getDay()];
+
+      document.getElementById("time2").innerHTML = day +" "+ d.toLocaleTimeString();
+    }
+    </script>
   
       
 
