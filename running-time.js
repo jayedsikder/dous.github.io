@@ -14,3 +14,10 @@ function myTimer() {
   document.getElementById("time6").innerHTML = day +" "+ d.toLocaleTimeString();
   document.getElementById("time7").innerHTML = day +" "+ d.toLocaleTimeString();
 }
+
+
+var vid = document.getElementById("myVideo"); 
+               
+function playVid() { 
+  vid.play(); 
+} 
