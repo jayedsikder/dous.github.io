@@ -126,7 +126,7 @@
           </script>
           
         <h4 class="modal-title" onmouseover="style.color='red'" onmouseout="style.color='black'" id="time" >10A Online Class Rutine. </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="playVid()" type="button"></button>
       </div>
       <script>
         setInterval(myTimer, 1000);
@@ -202,7 +202,7 @@
 <div class="offcanvas offcanvas-end" id="demo01">
     <div class="offcanvas-header">
       <h1 class="offcanvas-title">Sunday all Class link's below</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
     </div>
     <div class="offcanvas-body">
       
@@ -232,7 +232,7 @@
     <div class="offcanvas offcanvas-end" id="demo1">
       <div class="offcanvas-header">
         <h1 class="offcanvas-title">Monday all Class link's below</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
       </div>
       <div class="offcanvas-body">
         
@@ -264,7 +264,7 @@
       <div class="offcanvas offcanvas-end" id="demo2">
         <div class="offcanvas-header">
           <h1 class="offcanvas-title">Tuesday all Class link's below</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
         </div>
         <div class="offcanvas-body">
           
@@ -294,7 +294,7 @@
         <div class="offcanvas offcanvas-end" id="demo3">
           <div class="offcanvas-header">
             <h1 class="offcanvas-title">Wednessday all Class link's below</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
           </div>
           <div class="offcanvas-body">
             
@@ -324,7 +324,7 @@
           <div class="offcanvas offcanvas-end" id="demo4">
             <div class="offcanvas-header">
               <h1 class="offcanvas-title">Thursday all Class link's below</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
             </div>
             <div class="offcanvas-body">
               
@@ -365,7 +365,7 @@
   <div class="toast">
     <div class="toast-header">
       <strong class="me-auto">Warning... You need to reload to get original time</Warning></strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" onclick="playVid()" type="button"></button>
     </div>
     <div class="toast-body">
       <p>
@@ -474,7 +474,7 @@ document.getElementById("demo11").innerHTML = d;
           <div class="offcanvas offcanvas-start" id="demo010">
             <div class="offcanvas-header">
               <h3 class="offcanvas-title">Sunday all Class link's below</h3><h5 id="time3"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
             </div>
             <div class="offcanvas-body">
               
@@ -504,7 +504,7 @@ document.getElementById("demo11").innerHTML = d;
             <div class="offcanvas offcanvas-start" id="demo10">
               <div class="offcanvas-header">
                 <h3 class="offcanvas-title">Monday all Class link's below</h3><h5 id="time4"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
               </div>
               <div class="offcanvas-body">
                 
@@ -534,7 +534,7 @@ document.getElementById("demo11").innerHTML = d;
               <div class="offcanvas offcanvas-start" id="demo20">
                 <div class="offcanvas-header">
                   <h3 class="offcanvas-title">Tuesday all Class link's below</h3><h5 id="time5"></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
                 </div>
                 <div class="offcanvas-body">
                   
@@ -564,7 +564,7 @@ document.getElementById("demo11").innerHTML = d;
                 <div class="offcanvas offcanvas-start" id="demo30">
                   <div class="offcanvas-header">
                     <h3 class="offcanvas-title">Wednessday all Class link's below</h3><h5 id="time6"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
                   </div>
                   <div class="offcanvas-body">
                     
@@ -594,7 +594,7 @@ document.getElementById("demo11").innerHTML = d;
                   <div class="offcanvas offcanvas-start" id="demo40">
                     <div class="offcanvas-header">
                       <h3 class="offcanvas-title">Thursday all Class link's below</h3><h5 id="time7"></h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" onclick="playVid()" type="button"></button>
                     </div>
                     <div class="offcanvas-body">
                       
@@ -885,6 +885,11 @@ document.getElementById("demo11").innerHTML = d;
       document.getElementById("time2").innerHTML = day +" "+ d.toLocaleTimeString();
     }
     </script>
+
+              <video id="myVideo" >
+                <source src="12.wav" type="audio/ogg">
+                 <source src="12.mp3" type="audio/mpeg">
+               </video>
   
     <script src="running-time.js"></script>  
 
