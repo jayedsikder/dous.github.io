@@ -6,12 +6,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     <meta name="google-site-verification" content="lo7gT68dvrujbgfdj-V86yr24wyITPAihMbOmPg_Mos" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
     
      <link rel="shortcut icon" href="https://yevgenysim.github.io/touche/assets/favicon/favicon.ico">
     
@@ -117,26 +116,12 @@
       <div class="modal-header">
         <h4 class="modal-title" onmouseover="style.color='green'" onmouseout="style.color='black'">  <i class="fas fa-clock"></i> </h4>
         <h6 class="container mt-3" id="day" onmouseover="style.color='red'" onmouseout="style.color='black'"></h6>
-        <script>
-          const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-          
-          const d = new Date();
-          let day = days[d.getDay()];
-          document.getElementById("day").innerHTML = day;
-          </script>
           
         <h4 class="modal-title" onmouseover="style.color='red'" onmouseout="style.color='black'" id="time" >10A Online Class Rutine. </h4>
          <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="modal"  type="button"></button>
          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="modal" onclick="playVid()" type="button" ></button>
       </div>
-      <script>
-        setInterval(myTimer, 1000);
-        
-        function myTimer() {
-          const d = new Date();
-          document.getElementById("time").innerHTML = d.toLocaleTimeString();
-        }
-        </script>
+
       <!-- Modal body -->
       <div class="modal-body">
     
@@ -379,24 +364,12 @@
       <p>
         <p id="time2"></p>
 
-<script>
-const d = new Date();
-d.setHours(12);
-document.getElementById("demo11").innerHTML = d;
-</script>
+
       </p>
     </div>
   </div>
 
-  <script>
-    document.getElementById("toastbtn").onclick = function() {
-      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-      var toastList = toastElList.map(function(toastEl) {
-        return new bootstrap.Toast(toastEl)
-      })
-      toastList.forEach(toast => toast.show()) 
-    }
-    </script>
+
               </div>
         <div id="demo" style="display:none">
         <div class="container mt-3">
@@ -471,12 +444,7 @@ document.getElementById("demo11").innerHTML = d;
                <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="My name is Jayed Sikder.">
             <img src="logu.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="240" height="233">    
               </div>
-              <script>
-                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                  return new bootstrap.Tooltip(tooltipTriggerEl)
-                })
-                </script>
+              
           </div>
           <!--Docs -->
           <div class="offcanvas offcanvas-start" id="demo010">
@@ -904,6 +872,43 @@ document.getElementById("demo11").innerHTML = d;
                </video>
   
     <script src="running-time.js"></script>  
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+          const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          
+          const d = new Date();
+          let day = days[d.getDay()];
+          document.getElementById("day").innerHTML = day;
+          </script>
+      <script>
+        setInterval(myTimer, 1000);
+        
+        function myTimer() {
+          const d = new Date();
+          document.getElementById("time").innerHTML = d.toLocaleTimeString();
+        }
+        </script>
+<script>
+const d = new Date();
+d.setHours(12);
+document.getElementById("demo11").innerHTML = d;
+</script>
+  <script>
+    document.getElementById("toastbtn").onclick = function() {
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      var toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl)
+      })
+      toastList.forEach(toast => toast.show()) 
+    }
+    </script>
+<script>
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                  return new bootstrap.Tooltip(tooltipTriggerEl)
+                })
+                </script>
 
 </body>
 </html>
