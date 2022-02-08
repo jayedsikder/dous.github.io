@@ -1,0 +1,131 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 250, 250);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+  }
+
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-align:center;
+  
+  }
+  
+  .sidenav a:hover{
+    color: #e20b0b;
+    text-align:center;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-align:center;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .sidenav.table-1{ 
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+     
+    background-color: rgba(196, 24, 104, 0.726);
+  
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: right;
+    
+  }
+.sidenav table:hover{
+    color: rgba(150, 11, 11, 0.705);
+  
+    text-align:right;
+}
+
+.sidenav .button-center {
+    text-align:center;
+  }
+
+
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 2;
+  }
+
+
+
+  .btn-outline-primary-js{color:#c50dfd;border-color:#d600dd}
+  .btn-outline-primary-js:hover{color:#fff;background-color:rgb(206, 117, 198);border-color:#fd0dad}
+  .btn-check:focus+
+  .btn-outline-primary-js,
+  .btn-outline-primary:focus{box-shadow:0 0 0 .25rem rgba(253, 13, 13, 0.5)}
+  .btn-check:active+
+  .btn-outline-primary-js,
+  .btn-check:checked+
+  .btn-outline-primary-js,
+  .btn-outline-primary-js.active,
+  .btn-outline-primary-js
+  .dropdown-toggle
+  .show,
+  .btn-outline-primary-js:active{color:#fff;background-color:#890dfd;border-color:#fd0d71}
+  .btn-check:active+
+  .btn-outline-primary-js:focus,
+  .btn-check:checked+
+  .btn-outline-primary-js:focus,
+  .btn-outline-primary-js.active:focus,
+  .btn-outline-primary-js.dropdown-toggle
+  .show:focus,
+  .btn-outline-primary-js:active:focus{box-shadow:0 0 0 .25rem rgba(219, 7, 124, 0.329)}
+  .btn-outline-primary-js.disabled,
+  .btn-outline-primary-js:disabled{color:#fd8d0d;background-color:transparent}
+  
