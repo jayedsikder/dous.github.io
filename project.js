@@ -8,15 +8,17 @@ if (req.url == '/fileupload') {
    var form = new formidable.IncomingForm();
    form.parse(req, (err, fields, files) => {
       var oldpath = files.filetoupload.filepath;
-      var newpath = 'https://github.com/jayedsikder/dous.github.io/' + files.filetoupload.originalFilename;
+      var newpath = 'C:/Users/Jayed Sikder/Favorites/' + files.filetoupload.originalFilename;
       fs.rename(oldpath, newpath, (err) => {
        if (err) throw err;
-      res.write('File uploaded and moved!');
-      res.end();
+      res.write('<h1>File uploaded and moved!</h1><br><button onclick="history.back()">GO Back</button>');
+      return res.end();
    });
  }); 
  } else {
-   fs.readFile('index.html', (err, data) => {
+   var q = url.parse(req.url, true);
+   var filename = "test.html" + q.pathname;
+   fs.readFile(filename, (err, data) => {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
       return res.end('404 Not Find');
@@ -27,4 +29,4 @@ if (req.url == '/fileupload') {
  }
 });
  }
-}).listen(8080);                                                                                                                                                                                                         
+}).listen(8080);                                                                                                                                                                                                                
