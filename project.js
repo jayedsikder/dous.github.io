@@ -16,7 +16,7 @@ if (req.url == '/fileupload') {
    });
  }); 
  } else {
-   fs.readFile('projectht.html', (err, data) => {
+   fs.readFile('index.html', (err, data) => {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
       return res.end('404 Not Find');
