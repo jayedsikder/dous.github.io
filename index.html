@@ -34,7 +34,57 @@
           <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
             <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DEIVE</a>
           <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-         
+          <div id="searchContainer" class="w3-bar-item w3-button">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button id="searchButton">Search</button>
+          </div>
+          
+          <link rel="stylesheet" href="b.css">
+
+          <script>
+            function search() {
+              // Get the input value
+              var input = document.getElementById("searchInput").value.toLowerCase();
+              // Get the list of items to search through
+              var x = 'Home';
+              var items = [x, "About", "info", "grape", "pear",
+            ];
+              // Filter the list of items based on the input
+              var filteredItems = items.filter(function(item) {
+                return item.toLowerCase().indexOf(input) > -1;
+              });
+              // Display the filtered items in a list
+              var results = document.getElementById("searchResults");
+              results.innerHTML = "";
+              for (var i = 0; i < filteredItems.length; i++) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(filteredItems[i]));
+                results.appendChild(li);
+              }
+              // Add a class to show the search results with animation
+              results.classList.add("show");
+            }
+            
+            // Activate the search function when the user clicks the button
+            document.getElementById("searchButton").addEventListener("click", search);
+            
+            // Activate the search function when the user presses Enter
+            document.getElementById("searchInput").addEventListener("keyup", function(event) {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                search();
+              }
+            });
+            
+            // Hide the search results when the user clicks outside of the search container
+            document.addEventListener("click", function(event) {
+              var searchContainer = document.getElementById("searchContainer");
+              if (!searchContainer.contains(event.target)) {
+                document.getElementById("searchResults").classList.remove("show");
+              }
+            });
+            
+            </script>
             <a href="https://jayedsikder.github.io/amongus.github.io/" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 
                 <i class="fa fa-search"></i>  
@@ -61,6 +111,7 @@
       </div>
     
       <div class="w3-content w3-container w3-padding-64" id="about">
+        <div id="searchResults" class="result w3-center"></div>
         <h3 class="w3-center">ABOUT US</h3>
         <p class="w3-center"><em>We store our school works</em></p>
         
@@ -131,7 +182,7 @@
                      <td>Eng-II</td>
                  </tr>
               
-                 <tr>
+                 <tr>playVid()
                      <td>Thurs</td>
                      <td>Beng-II</td>
                      <td>Beng-1</td>
@@ -299,7 +350,7 @@
           <source src="12.wav" type="audio/ogg">
            <source src="12.wav" type="audio/mpeg">
          </video>
-        <button class="btn btn-outline-primary-js w3-left mt-3" onclick="openNav()"><i class="far fa-calendar-alt"></i> Click Here Show All About <b style="color: maroon;">10B</b></button>
+        <button class="btn btn-outline-primary-js w3-left mt-3" onclick="playVid()"><i class="far fa-calendar-alt"></i> Click Here Show All About <b style="color: maroon;">10B</b></button>
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
@@ -1092,9 +1143,9 @@
         }
         </script>
 <script>
-const d = new Date();
+const dm = new Date();
 d.setHours(12);
-document.getElementById("demo11").innerHTML = d;
+document.getElementById("demo11").innerHTML = dm;
 </script>
   <script>
     document.getElementById("toastbtn").onclick = function() {
@@ -1114,3 +1165,4 @@ document.getElementById("demo11").innerHTML = d;
 
 </body>
 </html
+
