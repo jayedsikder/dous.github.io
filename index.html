@@ -3,1166 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     <meta name="google-site-verification" content="lo7gT68dvrujbgfdj-V86yr24wyITPAihMbOmPg_Mos" />
+    <title>School Class Schedules & Resources</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://yevgenysim.github.io/touche/assets/favicon/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Frameworks CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     
-    
-     <link rel="shortcut icon" href="https://yevgenysim.github.io/touche/assets/favicon/favicon.ico">
-    
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="st.css">
     <link rel="stylesheet" href="st1.css">
     <link rel="stylesheet" href="st2.css">
     <link rel="stylesheet" href="sl.css">
-    <title>Server among us</title>
     <link href="10c.css" rel="stylesheet">
+    <link rel="stylesheet" href="b.css"> 
+    <link rel="stylesheet" href="flair.css"> <!-- Added flair.css -->
+    <style>
+        .class-time-info {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .class-link-item {
+            margin-bottom: 0.5rem; /* Consistent spacing */
+        }
+        .progress {
+            margin-bottom: 1rem; /* Add some space below progress bars */
+        }
+    </style>
 </head>
 <body>
-    <div class="w3-top">
-        <div class="w3-bar" id="myNavbar">
-          <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-            <i class="fa fa-bars"></i>
-          </a>
-          <a href="#home" class="w3-bar-item w3-button">HOME</a>
-          <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-          <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-            <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DEIVE</a>
-          <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-          <div id="searchContainer" class="w3-bar-item w3-button">
-            <input type="text" id="searchInput" placeholder="Search...">
-            <button id="searchButton">Search</button>
-          </div>
-          
-          <link rel="stylesheet" href="b.css">
 
-          <script>
-            function search() {
-              // Get the input value
-              var input = document.getElementById("searchInput").value.toLowerCase();
-              // Get the list of items to search through
-              var x = 'Home';
-              var items = [x, "About", "info", "grape", "pear",
-            ];
-              // Filter the list of items based on the input
-              var filteredItems = items.filter(function(item) {
-                return item.toLowerCase().indexOf(input) > -1;
-              });
-              // Display the filtered items in a list
-              var results = document.getElementById("searchResults");
-              results.innerHTML = "";
-              for (var i = 0; i < filteredItems.length; i++) {
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(filteredItems[i]));
-                results.appendChild(li);
-              }
-              // Add a class to show the search results with animation
-              results.classList.add("show");
-            }
-            
-            // Activate the search function when the user clicks the button
-            document.getElementById("searchButton").addEventListener("click", search);
-            
-            // Activate the search function when the user presses Enter
-            document.getElementById("searchInput").addEventListener("keyup", function(event) {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                search();
-              }
-            });
-            
-            // Hide the search results when the user clicks outside of the search container
-            document.addEventListener("click", function(event) {
-              var searchContainer = document.getElementById("searchContainer");
-              if (!searchContainer.contains(event.target)) {
-                document.getElementById("searchResults").classList.remove("show");
-              }
-            });
-            
-            </script>
-            <a href="https://jayedsikder.github.io/amongus.github.io/" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-                
-                <i class="fa fa-search"></i>  
-          </a>
-              
-         
-        </div>
-      
-        <!-- Navbar on small screens -->
-        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-          <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-          <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-            <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DEIVE</a>
-          <a href="https://www.facebook.com/messages/t/4067569863335888" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-          <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-        </div>
-      </div>
-      
-      <!-- First Parallax Image with Logo Text -->
-      <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-        <div class="w3-display-middle" style="white-space:nowrap;">
-          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Server <span class="w3-hide-small">Among</span> Us</span>
-        </div>
-      </div>
-    
-      <div class="w3-content w3-container w3-padding-64" id="about">
-        <div id="searchResults" class="result w3-center"></div>
-        <h3 class="w3-center">ABOUT US</h3>
-        <p class="w3-center"><em>We store our school works</em></p>
-        
-      <div class="container mt-3">
-          
-          <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('demo').style.display='block'"> <i class="far fa-calendar-alt"></i>  SHOW <b>10D</b> Class Rutine</button>
-          
-          <button type="button" class="btn btn-outline-dark" id="toastbtn"> <i class="fas fa-clock"></i> Show Time</button>
-          <div class="container mt-3">
-
-
-  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-    <i class="far fa-calendar-alt"></i> Click Here To Show 10A All Online Class Information!
-  </button>
-        </div>
-
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn js-hover w3-left" onclick="closeNav()">&times;</a>
-          <em class="w3-large w3-margin-top w3-hide-small" id="dt"></em>
-          <em class="w3-large w3-left w3-hide-large w3-hide-medium" id="dt1"></em>
-          <br>
-          <a href="#" class="w3-hide-small" role="button">10B online class Rutine </a>
-          <span class="w3-hide-large w3-hide-medium" role="button">10B online class Rutine </span>
-          
-            <table class=" table table-1 w3-button table-hover">
-                       
-              <thead>
-                 <tr>
-                     <th><b>Day</b></th>
-                     <th><b>1st (11:00 - 11:40 am)</b></th>
-                     <th><b>2nd (11:45 - 12:25 pm)</b></th>
-                     <th><b>3rd (12:30 - 1:10 pm)</b></th>
-                     <th><b>4th (1:15 - 1:55 pm)</b></th>
-                 </tr>
-               </thead>  
-               <thead>
-                <tbody>
-                 <tr>
-                     <td>Sun</td>
-                     <td>Chem</td>
-                     <td>Math</td>
-                     <td>Eng-1</td>
-                     <td>RM.ST</td>
-                 </tr>
-                 
-                  
-                 <tr>
-                     <td>Mon</td>
-                     <td>Beng-1</td>
-                     <td>Eng-II</td>
-                     <td>Bio</td>
-                     <td>Phy</td>
-                 </tr>
-                 
-                 <tr>
-                     <td>Tues</td>
-                     <td>Beng-II</td>
-                     <td>Math</td>
-                     <td>Chem</td>
-                     <td>H. Math</td>
-                 </tr>
-                
-                 <tr>
-                     <td>Wed</td>
-                     <td>BG.St</td>
-                     <td>Math</td>
-                     <td>Eng-1</td>
-                     <td>Eng-II</td>
-                 </tr>
-              
-                 <tr>playVid()
-                     <td>Thurs</td>
-                     <td>Beng-II</td>
-                     <td>Beng-1</td>
-                     <td>Bio</td>
-                     <td>Phy</td>
-                 </tr>
-                  </tbody>
-             </table>
-        
-             <div class="offcanvas offcanvas-end" id="demo019">
-              <div class="offcanvas-header">
-                <h1 class="offcanvas-title">Sunday all Class link's below</h1>
-                    <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-              </div>
-              <div class="offcanvas-body">
-                
-                <a href="https://us05web.zoom.us/j/8045271926?pwd=Ri83NWwvMXFkaStnVlVlbWFaaFB0QT09&fbclid=IwAR0Jaa_sTeM5bLFIEYMwee3Nu_4coNueP6yQK30O9TS-jIqrC7FZbfZKMDU#success" target="_blank"><button class="btn btn-secondary" type="button">Chem</button></a>
-                <b>1st (11:00 - 11:40 am) <h6><em>Zoom link</em></h6></b>
-                <hr>
-                <a href="https://meet.google.com/gqc-ihsa-tvp" type="button">Math</button></a>
-                <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6></b>
-                <hr>
-                <a href="https://meet.google.com/uzq-obot-abb" target="_blank"><button class="btn btn-secondary" type="button">Eng-1</button></a>
-                <b>3rd (12:30 - 1:10 pm) <h6><em>Google Meet link</em></h6> </b>
-                <hr>
-                <a href="https://meet.google.com/uzd-rpku-xij?fbclid=IwAR2gXgca1Q3hvOOL681XyKA4GoYWMzSS9SdrnTQz7hx_7KQYpeOGBZ0YNLU" target="_blank"><button class="btn btn-secondary" type="button">RM.St</button></a>
-                <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet Link</em></h6></b>
-              </div>
-            </div>
-            
-            <div class="container-fluid mt-3">
-              <h3 onmouseover="style.color='red'" onmouseout="style.color='black'">10B Online Class</h3>
-              <p style="text-align: left;"><b><em onmouseover="style.color='red'" onmouseout="style.color='black'">Click the buttons to  show all schedules of online class's.</em></b>This is for class 10B. Only give the Zoom and Google Meet's Link.</p>
-              <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo019">
-                Sunday Class's
-              </button>
-            </div>
-          
-          
-              <div class="offcanvas offcanvas-end" id="demo19">
-                <div class="offcanvas-header">
-                  <h1 class="offcanvas-title">Monday all Class link's below</h1>
-                  <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                </div>
-                <div class="offcanvas-body">
-                  
-                  <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank"><button class="btn btn-secondary" type="button">Beng-1</button></a>
-                  <b>1st (11:00 - 11:40 am) <h6><em>Google Meet link</em></h6> </b>
-                  <hr>
-                  <a href="https://meet.google.com/sea-vnth-day" target="_blank"><button class="btn btn-secondary" type="button">Eng-II</button></a>
-                  <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6> </b>
-                  <hr>
-                  <a href="https://us05web.zoom.us/j/6593524888?pwd=eDNsVmpNRG5oRDNycFFBdVRsdjdlZz09&fbclid=IwAR2DVNeIZ3DNDQgExsCjoINEElBYP_EN3LHgWZZYGJJZJDbIRRYRrS5nXBc#success" target="_blank"><button class="btn btn-secondary" type="button">Bio</button></a>
-                  <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom Link</em></h6> </b>
-                  <hr>
-                  <a href="https://meet.google.com/yqw-spca-div" target="_blank"><button class="btn btn-secondary" type="button">Phy</button></a>
-                  <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet link</em></h6> </b>
-                </div>
-              </div>
-              
-              <div class="container-fluid mt-3">
-                
-                <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo19">
-                Monday Class's
-                </button>
-              </div>
-              
-            
-            
-                <div class="offcanvas offcanvas-end" id="demo29">
-                  <div class="offcanvas-header">
-                    <h1 class="offcanvas-title">Tuesday all Class link's below</h1>
-                    <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    
-                    <a href="https://meet.google.com/jcg-swcz-gbo" target="_blank"><button class="btn btn-secondary" type="button">Beng-II</button> </a>
-                    <b>1st (11:00 - 11:40 am) <h6><em>Google Meet link</em></h6> </b>
-                    <hr>
-                    <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank"><button class="btn btn-secondary" type="button">Math</button> </a>
-                    <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6> </b>
-                    <hr>
-                    <a href="https://us05web.zoom.us/j/8045271926?pwd=Ri83NWwvMXFkaStnVlVlbWFaaFB0QT09&fbclid=IwAR0Jaa_sTeM5bLFIEYMwee3Nu_4coNueP6yQK30O9TS-jIqrC7FZbfZKMDU#success" target="_blank"><button class="btn btn-secondary" type="button">Chem</button></a>
-                    <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom link</em></h6> </b>
-                    <hr>
-                    <a href="https://us05web.zoom.us/j/6269269695?pwd=M01hTGdva3RETVJUUHYxWjRLMDd1dz09&fbclid=IwAR3ECGvkySbInNdC8k-0CFo78pItpJknmkL5_lWtixBOTFh5bCPuhO4ddho#success" target="_blank"><button class="btn btn-secondary" type="button">H.Math</button></a>
-                    <b>4th (1:15 - 1:55 pm) <h6><em>Zoom Meet link</em></h6> </b>
-                  </div>
-                </div>
-                
-                <div class="container-fluid mt-3">
-                  
-                  <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo29">
-                  Tuesday Class's
-                  </button>
-                </div>
-                
-              
-            
-                  <div class="offcanvas offcanvas-end" id="demo39">
-                    <div class="offcanvas-header">
-                      <h1 class="offcanvas-title">Wednessday all Class link's below</h1>
-                      <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                    </div>
-                    <div class="offcanvas-body">
-                      
-                      <a href="https://us05web.zoom.us/j/4740165304?pwd=QWdsdkZ2WHFRYU40K3VibDdrNElUQT09&fbclid=IwAR32AwGYcCkzNmhSb7sg618Mu95IGWjNX7b57HlnPEOkoV_5PqKTDiED-oc#success" target="_blank"><button class="btn btn-secondary" type="button">BG.St</button></a>
-                      <b>1st (11:00 - 11:40 am) <h6><em>Zoom link Pass: 4rBCc1 </em></h6> </b>
-                      <hr>
-                      <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank"><button class="btn btn-secondary" type="button">Math</button></a>
-                      <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6> </b>
-                      <hr>
-                      <a href="https://meet.google.com/uzq-obot-abb" target="_blank"><button class="btn btn-secondary" type="button">Eng-I</button></a>
-                      <b>3rd (12:30 - 1:10 pm) <h6><em>Google meet link</em></h6> </b>
-                      <hr>
-                      <a href="https://meet.google.com/sea-vnth-day" target="_blank"><button class="btn btn-secondary" type="button">Eng-II</button></a>
-                      <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet Link</em></h6> </b>
-                    </div>
-                  </div>
-                  
-                  <div class="container-fluid mt-3">
-                    
-                    <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo39">
-                    Wednessday Class's
-                    </button>
-                  </div>
-                  
-            
-            
-                    <div class="offcanvas offcanvas-end" id="demo49">
-                      <div class="offcanvas-header">
-                        <h1 class="offcanvas-title">Thursday all Class link's below</h1>
-                        <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-          <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                      </div>
-                      <div class="offcanvas-body">
-                        
-                        <a href="https://meet.google.com/jcg-swcz-gbo" target="_blank"><button class="btn btn-secondary" type="button">Beng-II</button></a>
-                        <b>1st (11:00 - 11:40 am) <h6><em>Google Meet link</em></h6> </b>
-                        <hr>
-                        <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank"><button class="btn btn-secondary" type="button">Beng-1</button></a>
-                        <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6> </b>
-                        <hr>
-                        <a href="https://us05web.zoom.us/j/6593524888?pwd=eDNsVmpNRG5oRDNycFFBdVRsdjdlZz09&fbclid=IwAR2DVNeIZ3DNDQgExsCjoINEElBYP_EN3LHgWZZYGJJZJDbIRRYRrS5nXBc#success" target="_blank"><button class="btn btn-secondary" type="button">Bio</button></a>
-                        <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom Link</em></h6> </b>
-                        <hr>
-                        <a href="https://meet.google.com/yqw-spca-div" target="_blank"><button class="btn btn-secondary" type="button">Phy</button></a>
-                        <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet link</em></h6> </b>
-                      </div>
-                    </div>
-                    
-                    <div class="container-fluid mt-3">
-                      
-                      <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo49">
-                     Thursday Class's
-                      </button>
-                    </div>
-        </div>
-        
-        <video id="myVideo" >
-          <source src="12.wav" type="audio/ogg">
-           <source src="12.wav" type="audio/mpeg">
-         </video>
-        <button class="btn btn-outline-primary-js w3-left mt-3" onclick="playVid()"><i class="far fa-calendar-alt"></i> Click Here Show All About <b style="color: maroon;">10B</b></button>
-
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-fullscreen-xxl-down">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title" onmouseover="style.color='green'" onmouseout="style.color='black'">  <i class="fas fa-clock"></i> </h4>
-        <h6 class="container mt-3" id="day" onmouseover="style.color='red'" onmouseout="style.color='black'"></h6>
-          
-        <h4 class="modal-title" onmouseover="style.color='red'" onmouseout="style.color='black'" id="time" >10A Online Class Rutine. </h4>
-         <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="modal"  type="button"></button>
-         <button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="modal" onclick="playVid()" type="button" ></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-    
-        <div class="container mt-3">
-            <table class="table  table-hover">
-               
-             <thead>
-                <tr>
-                    <th><b>Day</b></th>
-                    <th><b>1st (11:00 - 11:40 am)</b></th>
-                    <th><b>2nd (11:45 - 12:25 pm)</b></th>
-                    <th><b>3rd (12:30 - 1:10 pm)</b></th>
-                    <th><b>4th (1:15 - 1:55 pm)</b></th>
-                </tr>
-              </thead>  
-              <thead>
-               <tbody>
-                <tr>
-                    <td>Sun</td>
-                    <td>Eng-I</td>
-                    <td>Math</td>
-                    <td>Eng-II</td>
-                    <td>Phy</td>
-                </tr>
-                
-                 
-                <tr>
-                    <td>Mon</td>
-                    <td>Math</td>
-                    <td>R.M.St</td>
-                    <td>Chem</td>
-                    <td>Beng-II</td>
-                </tr>
-                
-                <tr>
-                    <td>Tues</td>
-                    <td>H. Math</td>
-                    <td>Beng-1</td>
-                    <td>B.G.ST</td>
-                    <td>Bio</td>
-                </tr>
-               
-                <tr>
-                    <td>Wed</td>
-                    <td>Eng-I</td>
-                    <td>Math</td>
-                    <td>Eng-II</td>
-                    <td>Phy</td>
-                </tr>
-             
-                <tr>
-                    <td>Thurs</td>
-                    <td>Math</td>
-                    <td>B.G.ST</td>
-                    <td>Chem</td>
-                    <td>Beng-II</td>
-                </tr>
-                 </tbody>
-            </table>
-        </div>
-        
-<!--Docs -->         
-          
-<div class="offcanvas offcanvas-end" id="demo01">
-    <div class="offcanvas-header">
-      <h1 class="offcanvas-title">Sunday all Class link's below</h1>
-          <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+<nav class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu" aria-label="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#home" class="w3-bar-item w3-button">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+      <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DRIVE</a>
+      <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+      <!-- Search functionality removed -->
     </div>
-    <div class="offcanvas-body">
-      
-      <a href="https://meet.google.com/uzq-obot-abb" target="_blank"><button class="btn btn-secondary" type="button">Eng-I- Shamol</button></a>
-      <b>1st (11:00 - 11:40 am) <h6><em>Google meet link</em></h6></b>
-      <hr>
-      <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Shukhen</button></a>
-      <b>2nd (11:45 - 12:25 pm) <h6><em>Zoom link</em></h6></b>
-      <hr>
-      <a href="https://meet.google.com/tut-bmwp-vfs?fbclid=IwAR2r0LW0RZukMvp-WQ0noRu-_cWpaw5g6FgrHwpw2f8H9XkUdzesrftLYTI&pli=1" target="_blank"><button class="btn btn-secondary" type="button">Eng-II- Atifur</button></a>
-      <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom link</em></h6> </b>
-      <hr>
-      <a href="https://meet.google.com/vnf-piby-swa" target="_blank"><button class="btn btn-secondary" type="button">Phy- Kishor</button></a>
-      <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet Link</em></h6></b>
-    </div>
-  </div>
   
-  <div class="container-fluid mt-3">
-    <h3 onmouseover="style.color='red'" onmouseout="style.color='black'">10A Online Class</h3>
-    <p><b><em onmouseover="style.color='red'" onmouseout="style.color='black'">Click the buttons to  show all schedules of online class's.</em></b>This is for class 10A. Only give the Zoom and Google Meet's Link.</p>
-    <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo01">
-      Sunday Class's
-    </button>
-  </div>
-
-
-    <div class="offcanvas offcanvas-end" id="demo1">
-      <div class="offcanvas-header">
-        <h1 class="offcanvas-title">Monday all Class link's below</h1>
-        <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-      </div>
-      <div class="offcanvas-body">
-        
-        <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Shukhen</button></a>
-        <b>1st (11:00 - 11:40 am) <h6><em>Zoom link</em></h6> </b>
-        <hr>
-        <a href="https://meet.google.com/azp-scmi-mos" target="_blank"><button class="btn btn-secondary" type="button">R.M.St- Sobhan</button></a>
-        <b>2nd (11:45 - 12:25 pm) <h6><em>Google Meet link</em></h6> </b>
-        <a href="https://us04web.zoom.us/j/9743468365?pwd=U2xPVWkzNjRaWEdobHI0MG5HQW8xZz09&fbclid=IwAR0aUfDggKWr8lJA8setNObowGP5Tx-W9GqeIMaHx5tjZgYjSBCtFlp0PaU#success" target="_blank"><button class="btn btn-secondary" type="button">R.M.St- RJC</button></a>
-        <b>2nd (11:45 - 12:25 pm) <h6><em>Zoom link</em></h6> </b>
-        <hr>
-        <a href="https://us04web.zoom.us/j/8187201047?pwd=Wkc0N0JRSHFRNDU0SmZZWkx4cEUzZz09&fbclid=IwAR3NRzed_4XehpqHePeIxmbRjLokTawBSZUstpry1bYUTbXRnTkQwdahRz8#success" target="_blank"><button class="btn btn-secondary" type="button">Chem- Shams</button></a>
-        <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom Link</em></h6> </b>
-        <hr>
-        <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank"><button class="btn btn-secondary" type="button">Beng-II- Shamim</button></a>
-        <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet link</em></h6> </b>
-      </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+      <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fab fa-google-drive"></i> GOOGLE DRIVE</a>
+      <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+      <!-- Search link removed -->
     </div>
+</nav>
+
+<header class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Server <span class="w3-hide-small">Among</span> Us</span>
+  </div>
+</header>
+
+<main>
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="about">
+    <h3 class="w3-center gradient-text">ABOUT US</h3>
+    <p class='w3-center'><em>We are a dedicated team collaborating on school projects, web development, and creative design. This platform is where we share our work and resources.</em></p>
     
-    <div class="container-fluid mt-3">
-      
-      <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
-      Monday Class's
+    <div class="container mt-3 text-center"> 
+      <button type="button" class="btn btn-outline-primary m-1" onclick="document.getElementById('demo').style.display='block'"> <i class="far fa-calendar-alt"></i>  SHOW <b>10D</b> Class Rutine</button>
+      <button type="button" class="btn btn-outline-dark m-1" id="toastbtn"> <i class="fas fa-clock"></i> Show Time</button>
+      <button type="button" class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#myModal">
+          <i class="far fa-calendar-alt"></i> Show 10A Class Information
       </button>
     </div>
-    
+  </section>
+
+  <section id="class-10b-schedule" class="sidenav-section reveal-on-scroll">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn js-hover w3-left" onclick="closeNav()" aria-label="Close 10B schedule panel">&times;</a>
+      <em class="w3-large w3-margin-top w3-hide-small" id="dt"></em>
+      <em class="w3-large w3-left w3-hide-large w3-hide-medium" id="dt1"></em>
+      <br>
+      <h5 class="w3-center">10B Online Class Routine</h5>
+      <div style="overflow-x:auto;" class="px-2">
+        <table class="w3-table-all w3-card-4 w3-hoverable w3-striped w3-bordered">
+            <thead>
+               <tr>
+                   <th>Day</th>
+                   <th>1st (11:00-11:40am)</th>
+                   <th>2nd (11:45-12:25pm)</th>
+                   <th>3rd (12:30-1:10pm)</th>
+                   <th>4th (1:15-1:55pm)</th>
+               </tr>
+            </thead>  
+            <tbody>
+               <tr>
+                   <td>Sun</td>
+                   <td>Chem</td>
+                   <td>Math</td>
+                   <td>Eng-1</td>
+                   <td>RM.ST</td>
+               </tr>
+               <tr>
+                   <td>Mon</td>
+                   <td>Beng-1</td>
+                   <td>Eng-II</td>
+                   <td>Bio</td>
+                   <td>Phy</td>
+               </tr>
+               <tr>
+                   <td>Tues</td>
+                   <td>Beng-II</td>
+                   <td>Math</td>
+                   <td>Chem</td>
+                   <td>H. Math</td>
+               </tr>
+               <tr>
+                   <td>Wed</td>
+                   <td>BG.St</td>
+                   <td>Math</td>
+                   <td>Eng-1</td>
+                   <td>Eng-II</td>
+               </tr>
+               <tr>
+                   <td>Thurs</td>
+                   <td>Beng-II</td>
+                   <td>Beng-1</td>
+                   <td>Bio</td>
+                   <td>Phy</td>
+               </tr>
+            </tbody>
+        </table>
+      </div>
   
-  
-      <div class="offcanvas offcanvas-end" id="demo2">
+       <div class="offcanvas offcanvas-end" id="demo019">
         <div class="offcanvas-header">
-          <h1 class="offcanvas-title">Tuesday all Class link's below</h1>
-          <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+          <h5 class="offcanvas-title">10B - Sunday Classes</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          
-          <a href="https://meet.google.com/wxg-ccrd-ers" target="_blank"><button class="btn btn-secondary" type="button">H. Math- Sajal</button> </a>
-          <b>1st (11:00 - 11:40 am) <h6><em>Google Meet link</em></h6> </b>
+          <div class="class-link-item mb-2">
+            <a href="https://us05web.zoom.us/j/8045271926?pwd=Ri83NWwvMXFkaStnVlVlbWFaaFB0QT09&fbclid=IwAR0Jaa_sTeM5bLFIEYMwee3Nu_4coNueP6yQK30O9TS-jIqrC7FZbfZKMDU#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem</a>
+            <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link</span>
+          </div>
           <hr>
-          <a href="https://us05web.zoom.us/j/4767661347?fbclid=IwAR0XxcbHSrwy0PS0_txS_dxX_w_4NyRxCKaFI77Y5BwVi0y0frx3gEOK6t0#success" target="_blank"><button class="btn btn-secondary" type="button">Beng-1- Sohidul</button> </a>
-          <b>2nd (11:45 - 12:25 pm) <h6><em>Zoom link</em></h6> </b>
+          <div class="class-link-item mb-2">
+            <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math</a>
+            <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span>
+          </div>
           <hr>
-          <a href="https://us04web.zoom.us/j/6840014591?pwd=0Ltlg2UNFV6OWbv5amRG8w3wZpQMPN.1&fbclid=IwAR0NHXYwOktdi6DwnO_LmtcwlJK1GjvHLl1_lB-_3Lt9bnTuYRgAfWVM5LI#success" target="_blank"><button class="btn btn-secondary" type="button">B.G.ST- Himon</button></a>
-          <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom link</em></h6> </b>
+          <div class="class-link-item mb-2">
+            <a href="https://meet.google.com/uzq-obot-abb" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-1</a>
+            <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google Meet link</span>
+          </div>
           <hr>
-          <a href="https://meet.google.com/ogu-scpd-tka" target="_blank"><button class="btn btn-secondary" type="button">Bio- Hasan</button></a>
-          <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet link</em></h6> </b>
+          <div class="class-link-item mb-2">
+            <a href="https://meet.google.com/uzd-rpku-xij?fbclid=IwAR2gXgca1Q3hvOOL681XyKA4GoYWMzSS9SdrnTQz7hx_7KQYpeOGBZ0YNLU" target="_blank" class="btn btn-sm btn-outline-primary me-2">RM.St</a>
+            <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet Link</span>
+          </div>
+          <hr>
         </div>
       </div>
       
-      <div class="container-fluid mt-3">
-        
-        <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo2">
-        Tuesday Class's
-        </button>
+      <div class="container-fluid mt-3 text-center">
+        <h3 onmouseover="style.color='red'" onmouseout="style.color='black'">10B Online Class Links</h3>
+        <p>Click the buttons to show all schedules of online classes.</p>
+        <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo019">Sunday</button>
+        <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo19">Monday</button>
+        <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo29">Tuesday</button>
+        <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo39">Wednesday</button>
+        <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo49">Thursday</button>
       </div>
-      
-    
-  
-        <div class="offcanvas offcanvas-end" id="demo3">
-          <div class="offcanvas-header">
-            <h1 class="offcanvas-title">Wednessday all Class link's below</h1>
-            <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-          </div>
-          <div class="offcanvas-body">
-            
-            <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank"><button class="btn btn-secondary" type="button">Eng-1- Mahmudul</button></a>
-            <b>1st (11:00 - 11:40 am) <h6><em>Zoom link Pass: 4rBCc1 </em></h6> </b>
-            <hr>
-            <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Shukhen</button></a>
-            <b>2nd (11:45 - 12:25 pm) <h6><em>Zoom link   </em></h6> </b>
-            <hr>
-            <a href="https://meet.google.com/tut-bmwp-vfs?fbclid=IwAR2r0LW0RZukMvp-WQ0noRu-_cWpaw5g6FgrHwpw2f8H9XkUdzesrftLYTI&pli=1" target="_blank"><button class="btn btn-secondary" type="button">Eng-II- Atifur</button></a>
-            <b>3rd (12:30 - 1:10 pm) <h6><em>Google meet link</em></h6> </b>
-            <hr>
-            <a href="https://meet.google.com/vnf-piby-swa" target="_blank"><button class="btn btn-secondary" type="button">Phy- Kishor</button></a>
-            <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet Link</em></h6> </b>
-          </div>
-        </div>
-        
-        <div class="container-fluid mt-3">
-          
-          <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo3">
-          Wednessday Class's
-          </button>
-        </div>
-        
-  
-  
-          <div class="offcanvas offcanvas-end" id="demo4">
+
+        <div class="offcanvas offcanvas-end" id="demo19">
             <div class="offcanvas-header">
-              <h1 class="offcanvas-title">Thursday all Class link's below</h1>
-              <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+                <h5 class="offcanvas-title">10B - Monday Classes</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              
-              <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Shukhen</button></a>
-              <b>1st (11:00 - 11:40 am) <h6><em>Zoom link</em></h6> </b>
-              <hr>
-              <a href="https://us04web.zoom.us/j/6840014591?pwd=0Ltlg2UNFV6OWbv5amRG8w3wZpQMPN.1&fbclid=IwAR0NHXYwOktdi6DwnO_LmtcwlJK1GjvHLl1_lB-_3Lt9bnTuYRgAfWVM5LI#success" target="_blank"><button class="btn btn-secondary" type="button">B.G.St- Himon</button></a>
-              <b>2nd (11:45 - 12:25 pm) <h6><em>Zoom link</em></h6> </b>
-              <hr>
-              <a href="https://us04web.zoom.us/j/8187201047?pwd=Wkc0N0JRSHFRNDU0SmZZWkx4cEUzZz09&fbclid=IwAR3NRzed_4XehpqHePeIxmbRjLokTawBSZUstpry1bYUTbXRnTkQwdahRz8#success" target="_blank"><button class="btn btn-secondary" type="button">Chem- Shams</button></a>
-              <b>3rd (12:30 - 1:10 pm) <h6><em>Zoom Link</em></h6> </b>
-              <hr>
-              <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank"><button class="btn btn-secondary" type="button">Beng-II- Shamim</button></a>
-              <b>4th (1:15 - 1:55 pm) <h6><em>Google Meet link</em></h6> </b>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-1</a>
+                    <span class="class-time-info">1st (11:00 - 11:40 am) - Google Meet link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/sea-vnth-day" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II</a>
+                    <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://us05web.zoom.us/j/6593524888?pwd=eDNsVmpNRG5oRDNycFFBdVRsdjdlZz09&fbclid=IwAR2DVNeIZ3DNDQgExsCjoINEElBYP_EN3LHgWZZYGJJZJDbIRRYRrS5nXBc#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bio</a>
+                    <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom Link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/yqw-spca-div" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy</a>
+                    <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span>
+                </div>
+                <hr>
             </div>
-          </div>
-          
-          <div class="container-fluid mt-3">
-            
-            <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo4">
-           Thursday Class's
-            </button>
-          </div>
-
-
-        <!-- Modal  -->
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Back</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-  
-  <div class="toast">
-    <div class="toast-header">
-      <strong class="me-auto">Warning... You need to reload to get original time</Warning></strong>
-      
-      <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="toast" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="toast" onclick="playVid()" type="button" ></button>
-    </div>
-    <div class="toast-body">
-      <p>
-        <p id="time2"></p>
-
-
-      </p>
-    </div>
-  </div>
-
-
-              </div>
-        <div id="demo" style="display:none">
-        <div class="container mt-3">
-            <table class="table  table-hover">
-               
-             <thead>
-                <tr>
-                    <th><b>Day</b></th>
-                    <th><b>1st (11:00 - 11:40 am)</b></th>
-                    <th><b>2nd (11:45 - 12:25 pm)</b></th>
-                    <th><b>3rd (12:30 - 1:10 pm)</b></th>
-                    <th><b>4th (1:15 - 1:55 pm)</b></th>
-                </tr>
-              </thead>  
-              <thead>
-               <tbody>
-                <tr>
-                    <td>Sun</td>
-                    <td>H. Math- Tapan</td>
-                    <td>Eng-II- Sumon</td>
-                    <td>Beng-1 Shamim</td>
-                    <td>Phy- Shuken</td>
-                </tr>
-                
-                 
-                <tr>
-                    <td>Mon</td>
-                    <td>Math- Nitai</td>
-                    <td>Bang-II- Sanjit Paul</td>
-                    <td>Eng-I- Ram Kumar</td>
-                    <td>H. Math- Tapan</td>
-                </tr>
-                
-                <tr>
-                    <td>Tues</td>
-                    <td>Bio- Ratan</td>
-                    <td>Chem- Dipak</td>
-                    <td>B.G.ST- Prasanta</td>
-                    <td>Bang-II- Sanjit Paul</td>
-                </tr>
-               
-                <tr>
-                    <td>Wed</td>
-                    <td>Math- Nitai</td>
-                    <td>Eng-II- Sumon</td>
-                    <td>Beng-1 Shamim</td>
-                    <td>Phy- Shuken</td>
-                </tr>
-             
-                <tr>
-                    <td>Thurs</td>
-                    <td>Math- Nitai</td>
-                    <td>Chem- Dipak</td>
-                    <td>Eng-I- Ram Kumar</td>
-                    <td>R.M.St -Sobhan</td>
-                </tr>
-                 </tbody>
-            </table>
         </div>
-        </div>
-    
         
-    
-        </body>
-
-
-          
-        <div class="w3-row">
-                <!--Docs -->
-          <div class="w3-col m6 w3-center w3-padding-large">
-            <p><b><i class="fa fa-user w3-margin-right"></i>We are Gregoryan</b></p><br>
-               <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="My name is Jayed Sikder.">
-            <img src="logu.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="240" height="233">    
-              </div>
-              
-          </div>
-          <!--Docs -->
-          <div class="offcanvas offcanvas-start" id="demo010">
+          <div class="offcanvas offcanvas-end" id="demo29">
             <div class="offcanvas-header">
-              <h3 class="offcanvas-title">Sunday all Class link's below</h3><h5 id="time3"></h5>
-                            <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+                <h5 class="offcanvas-title">10B - Tuesday Classes</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              
-              <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank"><button class="btn btn-secondary" type="button">H. Math- Tapan</button></a>
-              <b>1st (11:00 - 11:40 am) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google meet link</em></h6></b>
-              <hr>
-              <a href="https://us04web.zoom.us/j/3579960264#success" target="_blank"><button class="btn btn-secondary" type="button">Eng-II- Sumon</button></a>
-              <b>2nd (11:45 - 12:25 pm) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'">Zoom link Pass: 7Msg8b </em></h6></b>
-              <hr>
-              <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank"><button class="btn btn-secondary" type="button">	Beng-1 Shamim</button></a>
-              <b>3rd (12:30 - 1:10 pm) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'">Zoom link</em></h6> </b>
-              <hr>
-              <a href="https://us04web.zoom.us/j/7748857266#success" target="_blank"><button class="btn btn-secondary" type="button">Phy- Shuken</button></a>
-              <b>4th (1:15 - 1:55 pm) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'">Zoom link Pass: 5B08Ea </em></h6></b>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/jcg-swcz-gbo" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-II</a>
+                    <span class="class-time-info">1st (11:00 - 11:40 am) - Google Meet link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math</a>
+                    <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://us05web.zoom.us/j/8045271926?pwd=Ri83NWwvMXFkaStnVlVlbWFaaFB0QT09&fbclid=IwAR0Jaa_sTeM5bLFIEYMwee3Nu_4coNueP6yQK30O9TS-jIqrC7FZbfZKMDU#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem</a>
+                    <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom link</span>
+                </div>
+                <hr>
+                <div class="class-link-item mb-2">
+                    <a href="https://us05web.zoom.us/j/6269269695?pwd=M01hTGdva3RETVJUUHYxWjRLMDd1dz09&fbclid=IwAR3ECGvkySbInNdC8k-0CFo78pItpJknmkL5_lWtixBOTFh5bCPuhO4ddho#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">H.Math</a>
+                    <span class="class-time-info">4th (1:15 - 1:55 pm) - Zoom Meet link</span>
+                </div>
+                <hr>
             </div>
           </div>
-          
-          <div class="container-fluid mt-3">
-            <h3 onmouseover="style.color='red'" onmouseout="style.color='black'" >10D Online Class</h3>
-            <p><b><em onmouseover="style.color='red'" onmouseout="style.color='black'" >Click the buttons to  show all schedules of online class's.</em></b>This is for class 10D. Only give the Zoom and Google Meet's Link.</p>
-            <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo010">
-              <i class="fas fa-fingerprint"></i> Sunday Class's
-            </button>
-          </div>
-            
-            <div class="offcanvas offcanvas-start" id="demo10">
+            <div class="offcanvas offcanvas-end" id="demo39">
               <div class="offcanvas-header">
-                <h3 class="offcanvas-title">Monday all Class link's below</h3><h5 id="time4"></h5>
-                              <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+                <h5 class="offcanvas-title">10B - Wednesday Classes</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
-                
-                <a href="https://us05web.zoom.us/j/6269269695?pwd=M01hTGdva3RETVJUUHYxWjRLMDd1dz09&fbclid=IwAR37FWM95nNQjKqmzFFh46L3ut0edQeu-naWdxxfQPB0KlbOjw21TVBtyl4#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Nitai</button></a>
-                <b>1st (11:00 - 11:40 am) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'">Zoom link Pass: 4rBCc1</em></h6> </b>
+                <div class="class-link-item mb-2">
+                    <a href="https://us05web.zoom.us/j/4740165304?pwd=QWdsdkZ2WHFRYU40K3VibDdrNElUQT09&fbclid=IwAR32AwGYcCkzNmhSb7sg618Mu95IGWjNX7b57HlnPEOkoV_5PqKTDiED-oc#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">BG.St</a>
+                    <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link Pass: 4rBCc1</span>
+                </div>
                 <hr>
-                <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank"><button class="btn btn-secondary" type="button">Bang-II- Sanjit Paul</button></a>
-                <b>2nd (11:45 - 12:25 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math</a>
+                    <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span>
+                </div>
                 <hr>
-                <a href="https://meet.google.com/sea-vnth-day" target="_blank"><button class="btn btn-secondary" type="button">Eng-I- Ram Kumar</button></a>
-                <b>3rd (12:30 - 1:10 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google meet link</em></h6> </b>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/uzq-obot-abb" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-I</a>
+                    <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google meet link</span>
+                </div>
                 <hr>
-                <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank"><button class="btn btn-secondary" type="button">H. Math- Tapan</button></a>
-                <b>4th (1:15 - 1:55 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
+                <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/sea-vnth-day" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II</a>
+                    <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet Link</span>
+                </div>
+                <hr>
               </div>
             </div>
-            
-            <div class="container-fluid mt-3">
-              
-              <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo10">
-             <i class="fas fa-fingerprint"></i>  Monday Class's
-              </button>
-            </div>
-            
-          
-          
-              <div class="offcanvas offcanvas-start" id="demo20">
+              <div class="offcanvas offcanvas-end" id="demo49">
                 <div class="offcanvas-header">
-                  <h3 class="offcanvas-title">Tuesday all Class link's below</h3><h5 id="time5"></h5>
-                                <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
+                    <h5 class="offcanvas-title">10B - Thursday Classes</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  
-                  <a href="https://meet.google.com/yem-cqpk-cjg" target="_blank"><button class="btn btn-secondary" type="button">Bio- Ratan</button> </a>
-                  <b>1st (11:00 - 11:40 am) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                  <hr>
-                  <a href="https://meet.google.com/zto-fjfv-ouu" target="_blank"><button class="btn btn-secondary" type="button">Chem- Dipak</button> </a>
-                  <b>2nd (11:45 - 12:25 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                  <hr>
-                  <a href="https://meet.google.com/bgg-xkiy-jyq" target="_blank"><button class="btn btn-secondary" type="button">B.G.ST- Prasanta</button></a>
-                  <b>3rd (12:30 - 1:10 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                  <hr>
-                  <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank"><button class="btn btn-secondary" type="button">Bang-II- Sanjit Paul</button></a>
-                  <b>4th (1:15 - 1:55 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                </div>
-              </div>
-              
-              <div class="container-fluid mt-3">
-                
-                <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo20">
-                <i class="fas fa-fingerprint"></i> Tuesday Class's
-                </button>
-              </div>
-              
-            
-          
-                <div class="offcanvas offcanvas-start" id="demo30">
-                  <div class="offcanvas-header">
-                    <h3 class="offcanvas-title">Wednessday all Class link's below</h3><h5 id="time6"></h5>
-                                  <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    
-                    <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Nitai</button></a>
-                    <b>1st (11:00 - 11:40 am) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'" >Zoom link Pass: 4rBCc1 </em></h6> </b>
+                    <div class="class-link-item mb-2">
+                        <a href="https://meet.google.com/jcg-swcz-gbo" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-II</a>
+                        <span class="class-time-info">1st (11:00 - 11:40 am) - Google Meet link</span>
+                    </div>
                     <hr>
-                    <a href="https://us04web.zoom.us/j/3579960264#success" target="_blank"><button class="btn btn-secondary" type="button">Eng-II- Sumon</button></a>
-                    <b>2nd (11:45 - 12:25 pm) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'" >Zoom link   Pass: 7Msg8b </em></h6> </b>
+                    <div class="class-link-item mb-2">
+                        <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-1</a>
+                        <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span>
+                    </div>
                     <hr>
-                    <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank"><button class="btn btn-secondary" type="button">Beng-1 Shamim</button></a>
-                    <b>3rd (12:30 - 1:10 pm) <h6><em>Google meet link</em></h6> </b>
+                    <div class="class-link-item mb-2">
+                        <a href="https://us05web.zoom.us/j/6593524888?pwd=eDNsVmpNRG5oRDNycFFBdVRsdjdlZz09&fbclid=IwAR2DVNeIZ3DNDQgExsCjoINEElBYP_EN3LHgWZZYGJJZJDbIRRYRrS5nXBc#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bio</a>
+                        <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom Link</span>
+                    </div>
                     <hr>
-                    <a href="https://us04web.zoom.us/j/7748857266#success" target="_blank"><button class="btn btn-secondary" type="button">Phy- Shuken</button></a>
-                    <b>4th (1:15 - 1:55 pm) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'" >Zoom link Pass: 5B08Ea </em></h6> </b>
-                  </div>
+                    <div class="class-link-item mb-2">
+                        <a href="https://meet.google.com/yqw-spca-div" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy</a>
+                        <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span>
+                    </div>
+                    <hr>
                 </div>
-                
-                <div class="container-fluid mt-3">
-                  
-                  <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo30">
-                  <i class="fas fa-fingerprint"></i> Wednessday Class's
-                  </button>
-                </div>
-                
-          
-          
-                  <div class="offcanvas offcanvas-start" id="demo40">
-                    <div class="offcanvas-header">
-                      <h3 class="offcanvas-title">Thursday all Class link's below</h3><h5 id="time7"></h5>
-                                    <button type="button" class="btn-close  w3-hide-large" data-bs-dismiss="offcanvas" type="button"></button>
-<button type="button" class="btn-close w3-hide-small w3-hide-medium " data-bs-dismiss="offcanvas" onclick="playVid()" type="button" ></button>
-                    </div>
-                    <div class="offcanvas-body">
-                      
-                      <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank"><button class="btn btn-secondary" type="button">Math- Nitai</button></a>
-                      <b>1st (11:00 - 11:40 am) <h6><em onmouseover="style.color='red'" onmouseout="style.color='black'">Zoom link</em></h6> </b>
-                      <hr>
-                      <a href="https://meet.google.com/zto-fjfv-ouu" target="_blank"><button class="btn btn-secondary" type="button">	Chem- Dipak</button></a>
-                      <b>2nd (11:45 - 12:25 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                      <hr>
-                      <a href="https://meet.google.com/sea-vnth-day" target="_blank"><button class="btn btn-secondary" type="button">Eng-I- Ram Kumar</button></a>
-                      <b>3rd (12:30 - 1:10 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                      <hr>
-                      <a href="http://meet.google.com/azp-scmi-mos" target="_blank"><button class="btn btn-secondary" type="button">R.M.St -Sobhan</button></a>
-                      <b>4th (1:15 - 1:55 pm) <h6><em onmouseover="style.color='green'" onmouseout="style.color='black'">Google Meet link</em></h6> </b>
-                    </div>
-                  </div>
-                  
-                  <div class="container-fluid mt-3">
-                    
-                    <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo40">
-                  <i class="fas fa-fingerprint"></i>  Thursday Class's
-                    </button>
-                  </div>
-        <p class="w3-large w3-center w3-padding-16">We are really good at:</p>
-        <p class="w3-wide"><i class="fa fa-camera"></i>Web development</p>
-        
-        <div class="w3-light-grey">
-          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:50%">40%</div>
-        </div>
-        <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
-        
-        <div class="w3-light-grey">
-          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">75%</div>
-        </div>
-        <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
-        
-        <div class="w3-light-grey">
-          <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">50%</div>
-        </div>
-      </div>
-      
-      <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-        
-        <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">3+</span><br>
-            Members
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">2+</span><br>
-            Projects Done
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">2+</span><br>
-            Data Entry Members
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">20+</span><br>
-            Meetings
-          </div>
-        
-      </div>
-      
-      <!-- Second Parallax Image with Portfolio Text -->
-    
-      <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-    <h3 class="w3-center">Our WORKS</h3>
-    <p class="w3-center"><em onmouseover="style.color='black'" onmouseout="style.color='white'">Here are our C.W, H.W & Other works.<br> Click on the images to make them bigger</em></p><br>
-    <body class="w3-light-grey">
-
-      <!-- w3-content defines a container for fixed size centered content, 
-      and is wrapped around the whole page content, except for the footer in this example -->
-      <div class="w3-content" style="max-width:1400px">
-      
-      <!-- Header -->
-      
-      
-      <!-- Grid -->
-      <div class="w3-row">
-      
-      <!-- Blog entries -->
-      <div class="w3-col l8 s12">
-        <!-- Blog entry -->
-        <div class="w3-card-4 w3-margin w3-white">
-          <img src="cw.jpg" alt="Nature" style="width:100%" >
-          <div class="w3-container">
-            <h3><b>10D</b></h3>
-            <h5>Title description, <span class="w3-opacity">February 6, 2022</span></h5>
-          </div>
-      
-          <div class="w3-container">
-            <p onmouseover="style.color='white'" onmouseout="style.color='black'">NOt able able!</p>
-            <div class="w3-row">
-              <div class="w3-col m8 s12">
-                <p>
-                  
-
-
-                    <div class="dropdown">
-    
-                      <button class="dropbtn"><b> &nbsp; C.W &nbsp;»&nbsp;  </b></button>
-                      <div class="dropdown-content">
-                      <a href="#">Bangla 1</a>
-                      <a href="#">Bangla 2</a>
-                      <a href="#">English 1</a>
-                      </div>
-                    
-                    </div>
-
-                    
-
-                  </p>
               </div>
-              <div class="w3-col m4 w3-hide-small">
-                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-      
-        <!-- Blog entry -->
-        <div class="w3-card-4 w3-margin w3-white">
-        <img src="hw.jpg" alt="Norway" style="width:100%">
-          <div class="w3-container">
-            <h3><b onmouseover="style.color='white'" onmouseout="style.color='black'">BLOG ENTRY</b></h3>
-            <h5>Title description, <span class="w3-opacity">February 2, 2022</span></h5>
-          </div>
-      
-          <div class="w3-container">
-            <p onmouseover="style.color='white'" onmouseout="style.color='black'">Not able able.</p>
-            <div class="w3-row">
-              <div class="w3-col m8 s12">
-                <p>
-
-                  <div class="dropdown">
-    
-                    <button class="dropbtn"><b> &nbsp; H.W &nbsp;»&nbsp;  </b></button>
-                    <div class="dropdown-content">
-                    <a href="#">Bangla 1</a>
-                    <a href="#">Bangla 2</a>
-                    <a href="#">English 1</a>
-                    </div>
-                  
-                  </div>
-
-               </p>
-              </div>
-              <div class="w3-col m4 w3-hide-small">
-                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <!-- END BLOG ENTRIES -->
-      </div>
-      
-      <!-- Introduction menu -->
-      <div class="w3-col l4">
-        <!-- About Card -->
-        <div class="w3-card w3-margin w3-margin-top">
-        <img src="/w3images/avatar_g.jpg" style="width:100%">
-          <div class="w3-container w3-white">
-            <h4><b>Our Servises</b></h4>
-            <p><html>
- <body>
-  <form action="fileupload" method="post" enctype="multipart/form-data">
-    <input type="file" name="filetoupload">
-      <br>
-    <input type="submit">
-  </form>
- </body>
-</html></p>
-          </div>
-        </div><hr>
-        
-        <!-- Posts -->
-        <div class="w3-card w3-margin">
-          <div class="w3-container w3-padding">
-            <h4>The Developers</h4>
-          </div>
-          <ul class="w3-ul w3-hoverable w3-white">
-            <li class="w3-padding-16">
-              <img src="https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-1/p200x200/272661211_110312624892901_6031484841363815164_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeEHdZUpq9zqIbJAt1_rVIph7Tv1Rirlv3ntO_VGKuW_eeJTTYxCeXW3RYGzjIBusPvMpb7HsWltly7Js71X3WsV&_nc_ohc=Y2cQUC9nHukAX_gw4Uu&_nc_ht=scontent.fdac41-1.fna&oh=00_AT95DWrt_Xm_Uk0wgxjyhlDTzzNYsO_ZikxTrPPRrMPe1Q&oe=61FE7C83" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-              <span class="w3-large">Jayed Sikder</span><br>
-              <span>Web developer, Web Design & Data Entry</span>
-            </li>
-            <li class="w3-padding-16">
-                <div class=""tooltip>
-              <span class="tooltiptext"><img src="https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/272861804_469139614776420_4163107746511582573_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeG9e-HFEeLPuNykOc4ZQPrKSLFcHVfb4D1IsVwdV9vgPWxLIBiqjOO8oLJg2LQpedv9a45C6L51fVQwZD65QUDh&_nc_ohc=SwRnGFzlE38AX-XDPp7&_nc_ht=scontent.fdac41-1.fna&oh=00_AT9LgjULSoI9hrvQzBrZA5CnwBp5W3wSIVuA-wFNLvEwBA&oe=61FE3621" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                  <a href="https://www.facebook.com/nabil.shad.3139" target="_blank">My FB Profile.<i class="fab fa-facebook"></i></a></span>
-                </div>
-              <span class="w3-large">Nabil Shad Munim</span><br>
-              <span>Data Entry</span>
-            </li> 
-            <li class="w3-padding-16">
-              <img src="">
-              <span class="w3-large">Nabil Shad Munim</span><br>
-              <span>Data Entry</span>
-            </li>   
-            <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-              <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-              <span class="w3-large">Nabil Shad Munim</span><br>
-              <span>Photoshop & Data Entry</span>
-            </li>  
-          </ul>
-        </div>
-        <hr> 
-      
-        
-      <!-- END Introduction Menu -->
-      </div>
-      
-      <!-- END GRID -->
-      </div><br>
-      
-      <!-- END w3-content -->
-      </div>
-      
-      <!-- Footer -->
-      <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-        <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
-        <button class="w3-button w3-black w3-padding-large w3-margin-bottom" type="button" data-bs-toggle="modal" data-bs-target="#myModal">Next »</button>
-      </footer>
-      
-      </body>
-  
-  </div>
-  <!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption" class="w3-opacity w3-large"></p>
     </div>
-  </div>
+    
+    <div class="text-center mt-3"> 
+        <button class="btn btn-outline-info m-1" onclick="openNav()"><i class="far fa-calendar-alt"></i> Show 10B Schedule & Links</button>
+    </div>
+  </section>
 
-  <!-- Footer -->
+  <section id="class-10a-modal" class="modal-section reveal-on-scroll">
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">10A Online Class Routine</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div style="overflow-x:auto;">
+                <table class="w3-table-all w3-card-4 w3-hoverable w3-striped w3-bordered">
+                 <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>1st (11:00-11:40am)</th>
+                        <th>2nd (11:45-12:25pm)</th>
+                        <th>3rd (12:30-1:10pm)</th>
+                        <th>4th (1:15-1:55pm)</th>
+                    </tr>
+                  </thead>  
+                  <tbody>
+                    <tr> <td>Sun</td> <td>Eng-I</td> <td>Math</td> <td>Eng-II</td> <td>Phy</td> </tr>
+                    <tr> <td>Mon</td> <td>Math</td> <td>R.M.St</td> <td>Chem</td> <td>Beng-II</td> </tr>
+                    <tr> <td>Tues</td> <td>H. Math</td> <td>Beng-1</td> <td>B.G.ST</td> <td>Bio</td> </tr>
+                    <tr> <td>Wed</td> <td>Eng-I</td> <td>Math</td> <td>Eng-II</td> <td>Phy</td> </tr>
+                    <tr> <td>Thurs</td> <td>Math</td> <td>B.G.ST</td> <td>Chem</td> <td>Beng-II</td> </tr>
+                  </tbody>
+                </table>
+            </div>
+            <hr>
+            <h5 class="mt-3 text-center">10A Online Class Links</h5>
+            <div class="text-center">
+                <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo01">Sunday</button>
+                <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">Monday</button>
+                <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo2">Tuesday</button>
+                <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo3">Wednesday</button>
+                <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo4">Thursday</button>
+            </div>
+            
+            <div class="offcanvas offcanvas-end" id="demo01">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title">10A - Sunday Classes</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/uzq-obot-abb" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-I- Shamol</a>
+                    <span class="class-time-info">1st (11:00 - 11:40 am) - Google meet link</span>
+                  </div> <hr>
+                  <div class="class-link-item mb-2">
+                    <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Shukhen</a>
+                    <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link</span>
+                  </div> <hr>
+                  <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/tut-bmwp-vfs?fbclid=IwAR2r0LW0RZukMvp-WQ0noRu-_cWpaw5g6FgrHwpw2f8H9XkUdzesrftLYTI&pli=1" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II- Atifur</a>
+                    <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google Meet link</span>
+                  </div> <hr>
+                  <div class="class-link-item mb-2">
+                    <a href="https://meet.google.com/vnf-piby-swa" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy- Kishor</a>
+                    <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet Link</span>
+                  </div> <hr>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end" id="demo1">
+                <div class="offcanvas-header"> <h5 class="offcanvas-title">10A - Monday Classes</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+                <div class="offcanvas-body">
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Shukhen</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/azp-scmi-mos" target="_blank" class="btn btn-sm btn-outline-primary me-2">R.M.St- Sobhan</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span> </div>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/9743468365?pwd=U2xPVWkzNjRaWEdobHI0MG5HQW8xZz09&fbclid=IwAR0aUfDggKWr8lJA8setNObowGP5Tx-W9GqeIMaHx5tjZgYjSBCtFlp0PaU#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">R.M.St- RJC</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/8187201047?pwd=Wkc0N0JRSHFRNDU0SmZZWkx4cEUzZz09&fbclid=IwAR3NRzed_4XehpqHePeIxmbRjLokTawBSZUstpry1bYUTbXRnTkQwdahRz8#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem- Shams</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom Link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-II- Shamim</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span> </div> <hr>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end" id="demo2">
+                <div class="offcanvas-header"> <h5 class="offcanvas-title">10A - Tuesday Classes</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+                <div class="offcanvas-body">
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/wxg-ccrd-ers" target="_blank" class="btn btn-sm btn-outline-primary me-2">H. Math- Sajal</a>  <span class="class-time-info">1st (11:00 - 11:40 am) - Google Meet link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/4767661347?fbclid=IwAR0XxcbHSrwy0PS0_txS_dxX_w_4NyRxCKaFI77Y5BwVi0y0frx3gEOK6t0#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-1- Sohidul</a>  <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/6840014591?pwd=0Ltlg2UNFV6OWbv5amRG8w3wZpQMPN.1&fbclid=IwAR0NHXYwOktdi6DwnO_LmtcwlJK1GjvHLl1_lB-_3Lt9bnTuYRgAfWVM5LI#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">B.G.ST- Himon</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/ogu-scpd-tka" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bio- Hasan</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span> </div> <hr>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end" id="demo3">
+                <div class="offcanvas-header"> <h5 class="offcanvas-title">10A - Wednesday Classes</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+                <div class="offcanvas-body">
+                    <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-1- Mahmudul</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link Pass: 4rBCc1</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/7748857266?pwd=NU5TM0lFWWMyWi91aUREYlhEeG0vQT09&fbclid=IwAR2dacHVIllH1df3S-acIB9J8zXogPWiiG3pS-AJlzu2h56f1iV1Ahp3czE#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Shukhen</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/tut-bmwp-vfs?fbclid=IwAR2r0LW0RZukMvp-WQ0noRu-_cWpaw5g6FgrHwpw2f8H9XkUdzesrftLYTI&pli=1" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II- Atifur</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google meet link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/vnf-piby-swa" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy- Kishor</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet Link</span> </div> <hr>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end" id="demo4">
+                <div class="offcanvas-header"> <h5 class="offcanvas-title">10A - Thursday Classes</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+                <div class="offcanvas-body">
+                    <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Shukhen</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/6840014591?pwd=0Ltlg2UNFV6OWbv5amRG8w3wZpQMPN.1&fbclid=IwAR0NHXYwOktdi6DwnO_LmtcwlJK1GjvHLl1_lB-_3Lt9bnTuYRgAfWVM5LI#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">B.G.St- Himon</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/8187201047?pwd=Wkc0N0JRSHFRNDU0SmZZWkx4cEUzZz09&fbclid=IwAR3NRzed_4XehpqHePeIxmbRjLokTawBSZUstpry1bYUTbXRnTkQwdahRz8#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem- Shams</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Zoom Link</span> </div> <hr>
+                    <div class="class-link-item mb-2"> <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-II- Shamim</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span> </div> <hr>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="toast" style="position: fixed; top: 20px; right: 20px; z-index: 1055;"> 
+      <div class="toast-header">
+        <strong class="me-auto">Clock Update</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <p id="time2"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="class-10d-info" class="w3-container w3-padding-large reveal-on-scroll">
+    <div id="demo" style="display:none;">
+      <h4 class="w3-center mt-3">10D Class Routine</h4>
+      <div style="overflow-x:auto;" class="px-2">
+          <table class="w3-table-all w3-card-4 w3-hoverable w3-striped w3-bordered">
+           <thead>
+              <tr>
+                  <th>Day</th>
+                  <th>1st (11:00-11:40am)</th>
+                  <th>2nd (11:45-12:25pm)</th>
+                  <th>3rd (12:30-1:10pm)</th>
+                  <th>4th (1:15-1:55pm)</th>
+              </tr>
+            </thead>  
+            <tbody>
+              <tr> <td>Sun</td> <td>H. Math- Tapan</td> <td>Eng-II- Sumon</td> <td>Beng-1 Shamim</td> <td>Phy- Shuken</td> </tr>
+              <tr> <td>Mon</td> <td>Math- Nitai</td> <td>Bang-II- Sanjit Paul</td> <td>Eng-I- Ram Kumar</td> <td>H. Math- Tapan</td> </tr>
+              <tr> <td>Tues</td> <td>Bio- Ratan</td> <td>Chem- Dipak</td> <td>B.G.ST- Prasanta</td> <td>Bang-II- Sanjit Paul</td> </tr>
+              <tr> <td>Wed</td> <td>Math- Nitai</td> <td>Eng-II- Sumon</td> <td>Beng-1 Shamim</td> <td>Phy- Shuken</td> </tr>
+              <tr> <td>Thurs</td> <td>Math- Nitai</td> <td>Chem- Dipak</td> <td>Eng-I- Ram Kumar</td> <td>R.M.St -Sobhan</td> </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </section>
+        
+  <section id="developer-info" class="w3-row w3-padding-large reveal-on-scroll">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>We are Gregoryan</b></p><br>
+      <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="My name is Jayed Sikder.">
+        <img src="logu.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Jayed Sikder, the site developer." width="240" height="233">    
+      </div>
+    </div>
+
+    <div class="w3-col m6">
+        <h4 class="w3-center">10D Online Class Links</h4>
+         <div class="text-center">
+            <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo010">Sunday</button>
+            <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo10">Monday</button>
+            <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo20">Tuesday</button>
+            <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo30">Wednesday</button>
+            <button class="btn btn-outline-success m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo40">Thursday</button>
+        </div>
+
+        <div class="offcanvas offcanvas-start" id="demo010">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">10D - Sunday Classes</h5><h5 id="time3"></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="class-link-item mb-2"> <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank" class="btn btn-sm btn-outline-primary me-2">H. Math- Tapan</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Google meet link</span></div> <hr>
+            <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/3579960264#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II- Sumon</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link Pass: 7Msg8b</span></div> <hr>
+            <div class="class-link-item mb-2"> <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-1 Shamim</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google Meet link</span></div> <hr>
+            <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/7748857266#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy- Shuken</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Zoom link Pass: 5B08Ea</span></div> <hr>
+          </div>
+        </div>
+          
+        <div class="offcanvas offcanvas-start" id="demo10">
+            <div class="offcanvas-header"> <h5 class="offcanvas-title">10D - Monday Classes</h5> <h5 id="time4"></h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+            <div class="offcanvas-body">
+                <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/6269269695?pwd=M01hTGdva3RETVJUUHYxWjRLMDd1dz09&fbclid=IwAR37FWM95nNQjKqmzFFh46L3ut0edQeu-naWdxxfQPB0KlbOjw21TVBtyl4#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Nitai</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link Pass: 4rBCc1</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bang-II- Sanjit Paul</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/sea-vnth-day" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-I- Ram Kumar</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/gqc-ihsa-tvp" target="_blank" class="btn btn-sm btn-outline-primary me-2">H. Math- Tapan</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span></div> <hr>
+            </div>
+        </div>
+        
+        <div class="offcanvas offcanvas-start" id="demo20">
+            <div class="offcanvas-header"> <h5 class="offcanvas-title">10D - Tuesday Classes</h5> <h5 id="time5"></h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+            <div class="offcanvas-body">
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/yem-cqpk-cjg" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bio- Ratan</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/zto-fjfv-ouu" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem- Dipak</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/bgg-xkiy-jyq" target="_blank" class="btn btn-sm btn-outline-primary me-2">B.G.ST- Prasanta</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/ybi-ugem-pxr" target="_blank" class="btn btn-sm btn-outline-primary me-2">Bang-II- Sanjit Paul</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span></div> <hr>
+            </div>
+        </div>
+        
+        <div class="offcanvas offcanvas-start" id="demo30">
+            <div class="offcanvas-header"> <h5 class="offcanvas-title">10D - Wednesday Classes</h5> <h5 id="time6"></h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+            <div class="offcanvas-body">
+                <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Nitai</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link Pass: 4rBCc1</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/3579960264#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-II- Sumon</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Zoom link Pass: 7Msg8b</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/bwc-pdjz-yfp" target="_blank" class="btn btn-sm btn-outline-primary me-2">Beng-1 Shamim</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://us04web.zoom.us/j/7748857266#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Phy- Shuken</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Zoom link Pass: 5B08Ea</span></div> <hr>
+            </div>
+        </div>
+        
+        <div class="offcanvas offcanvas-start" id="demo40">
+            <div class="offcanvas-header"> <h5 class="offcanvas-title">10D - Thursday Classes</h5> <h5 id="time7"></h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div>
+            <div class="offcanvas-body">
+                <div class="class-link-item mb-2"> <a href="https://us05web.zoom.us/j/6269269695#success" target="_blank" class="btn btn-sm btn-outline-primary me-2">Math- Nitai</a> <span class="class-time-info">1st (11:00 - 11:40 am) - Zoom link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/zto-fjfv-ouu" target="_blank" class="btn btn-sm btn-outline-primary me-2">Chem- Dipak</a> <span class="class-time-info">2nd (11:45 - 12:25 pm) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="https://meet.google.com/sea-vnth-day" target="_blank" class="btn btn-sm btn-outline-primary me-2">Eng-I- Ram Kumar</a> <span class="class-time-info">3rd (12:30 - 1:10 pm) - Google Meet link</span></div> <hr>
+                <div class="class-link-item mb-2"> <a href="http://meet.google.com/azp-scmi-mos" target="_blank" class="btn btn-sm btn-outline-primary me-2">R.M.St -Sobhan</a> <span class="class-time-info">4th (1:15 - 1:55 pm) - Google Meet link</span></div> <hr>
+            </div>
+        </div>
+    </div> 
+  </section> 
+
+  <section id="skills" class="w3-container w3-padding-large reveal-on-scroll">
+    <h4 class="w3-center">Our Skills</h4>
+    <p class="w3-wide"><i class="fa fa-code w3-margin-right"></i>Web development</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+    </div>
+    <p class="w3-wide"><i class="fa fa-paint-brush w3-margin-right"></i>Photoshop</p>
+    <div class="progress">
+      <div class="progress-bar bg-secondary" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+    <p class="w3-wide"><i class="fa fa-laptop-code w3-margin-right"></i>Web Design</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+    </div>
+  </section>
+  
+  <section id="statistics" class="w3-row w3-center w3-dark-grey w3-padding-16 reveal-on-scroll">
+    <div class="w3-quarter w3-section"> <span class="w3-xlarge">3+</span><br> Members </div>
+    <div class="w3-quarter w3-section"> <span class="w3-xlarge">2+</span><br> Projects Done </div>
+    <div class="w3-quarter w3-section"> <span class="w3-xlarge">2+</span><br> Data Entry Members </div>
+    <div class="w3-quarter w3-section"> <span class="w3-xlarge">20+</span><br> Meetings </div>
+  </section>
+  
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="portfolio">
+    <h3 class="w3-center gradient-text">Our WORKS</h3>
+    <p class="w3-center"><em>Here are our C.W, H.W & Other works.<br> Click on the images to make them bigger</em></p><br>
+    <div class="w3-content" style="max-width:1400px">
+      <div class="w3-row">
+        <div class="w3-col l8 s12">
+          <article class="w3-card-4 w3-margin w3-white">
+            <img src="cw.jpg" alt="Class Work Example - 10D" style="width:100%" onclick="onClick(this)">
+            <div class="w3-container"> <h4><b>10D C.W.</b></h4> <h5>Class Work Samples, <span class="w3-opacity">February 6, 2022</span></h5> </div>
+            <div class="w3-container"> <p>Examples of class work completed by students.</p> 
+                <div class="w3-row"> 
+                    <div class="w3-col m8 s12">
+                        <div class="dropdown mt-2 mb-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="cwDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                C.W Subjects
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="cwDropdown">
+                                <li><a class="dropdown-item" href="#">Bangla 1</a></li>
+                                <li><a class="dropdown-item" href="#">Bangla 2</a></li>
+                                <li><a class="dropdown-item" href="#">English 1</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="w3-col m4 w3-hide-small"> <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p> </div> 
+                </div> 
+            </div>
+          </article>
+          <hr>
+          <article class="w3-card-4 w3-margin w3-white">
+            <img src="hw.jpg" alt="Home Work Example - Blog Entry" style="width:100%" onclick="onClick(this)">
+            <div class="w3-container"> <h4><b onmouseover="style.color='white'" onmouseout="style.color='black'">BLOG ENTRY (H.W.)</b></h4> <h5>Homework Samples, <span class="w3-opacity">February 2, 2022</span></h5> </div>
+            <div class="w3-container"> <p>Examples of homework submitted by students.</p> 
+                <div class="w3-row"> 
+                    <div class="w3-col m8 s12">
+                         <div class="dropdown mt-2 mb-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="hwDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                H.W Subjects
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="hwDropdown">
+                                <li><a class="dropdown-item" href="#">Bangla 1</a></li>
+                                <li><a class="dropdown-item" href="#">Bangla 2</a></li>
+                                <li><a class="dropdown-item" href="#">English 1</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="w3-col m4 w3-hide-small"> <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p> </div> 
+                </div> 
+            </div>
+          </article>
+        </div> 
+        <aside class="w3-col l4">
+          <div class="w3-card w3-margin w3-margin-top">
+            <!-- <img src="/w3images/avatar_g.jpg" style="width:100%; display: none;" alt="Placeholder Avatar">  -->
+            <div class="w3-container w3-white"> <h4><b>Services Offered</b></h4> <p>We offer web development, design, and data entry services for school projects.</p> </div>
+          </div>
+          <hr>
+          <div class="w3-card w3-margin">
+            <div class="w3-container w3-padding"> <h4>The Developers</h4> </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+              <li class="w3-padding-16"> <img src="https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-1/p200x200/272661211_110312624892901_6031484841363815164_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeEHdZUpq9zqIbJAt1_rVIph7Tv1Rirlv3ntO_VGKuW_eeJTTYxCeXW3RYGzjIBusPvMpb7HsWltly7Js71X3WsV&_nc_ohc=Y2cQUC9nHukAX_gw4Uu&_nc_ht=scontent.fdac41-1.fna&oh=00_AT95DWrt_Xm_Uk0wgxjyhlDTzzNYsO_ZikxTrPPRrMPe1Q&oe=61FE7C83" alt="Jayed Sikder" class="w3-left w3-margin-right" style="width:50px"> <span class="w3-large">Jayed Sikder</span><br> <span>Web developer, Web Design & Data Entry</span> </li>
+              <li class="w3-padding-16"> 
+                <img src="https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/272861804_469139614776420_4163107746511582573_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeG9e-HFEeLPuNykOc4ZQPrKSLFcHVfb4D1IsVwdV9vgPWxLIBiqjOO8oLJg2LQpedv9a45C6L51fVQwZD65QUDh&_nc_ohc=SwRnGFzlE38AX-XDPp7&_nc_ht=scontent.fdac41-1.fna&oh=00_AT9LgjULSoI9hrvQzBrZA5CnwBp5W3wSIVuA-wFNLvEwBA&oe=61FE3621" alt="Nabil Shad Munim" class="w3-left w3-margin-right" style="width:50px">
+                <span class="w3-large">Nabil Shad Munim</span><br> <span>Data Entry</span> 
+              </li>   
+              <li class="w3-padding-16 w3-hide-medium w3-hide-small"> 
+                <img src="/w3images/rock.jpg" alt="Placeholder Developer Image" class="w3-left w3-margin-right" style="width:50px; display: none;"> <!-- Kept hidden as it's a placeholder -->
+                <span class="w3-large">Another Developer</span><br> <span>Role</span> 
+              </li>  
+            </ul>
+          </div>
+          <hr> 
+        </aside> 
+      </div> 
+    </div> 
+  </section> 
+</main>
+
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'"> <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span> <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"> <img id="img01" class="w3-image"> <p id="caption" class="w3-opacity w3-large"></p> </div> </div>
+
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
     <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p>Creat by <a href="#" title="Jayed Sikder" target="_blank" class="w3-hover-text-green">Jayed Sikder BD24</a></p>
-  </footer>
+    <div class="w3-xlarge w3-section"> <i class="fa fa-facebook-official w3-hover-opacity"></i> <i class="fa fa-instagram w3-hover-opacity"></i> <i class="fa fa-snapchat w3-hover-opacity"></i> <i class="fa fa-pinterest-p w3-hover-opacity"></i> <i class="fa fa-twitter w3-hover-opacity"></i> <i class="fa fa-linkedin w3-hover-opacity"></i> </div>
+    <p>Created by <a href="#" title="Jayed Sikder" target="_blank" class="w3-hover-text-green">Jayed Sikder BD24</a></p>
+</footer>
    
-  <script>
-  // Modal Image Gallery
-  function onClick(element) {
-    document.getElementById("img01").src = element.src;
-    document.getElementById("modal01").style.display = "block";
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = element.alt;
-  }
-  
-  // Change style of navbar on scroll
-  window.onscroll = function() {myFunction()};
-  function myFunction() {
-      var navbar = document.getElementById("myNavbar");
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-          navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-      } else {
-          navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-      }
-  }
-  
-  // Used to toggle the menu on small screens when clicking on the menu button
-  function toggleFunction() {
-      var x = document.getElementById("navDemo");
-      if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-      } else {
-          x.className = x.className.replace(" w3-show", "");
-      }
-  }
-  </script>
-
-  </script>
-  
-  <script>
-    setInterval(myTimer, 1000);
-    
-    function myTimer() {
-      const d = new Date();
-
-      const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-          
-          const d1 = new Date();
-          let day = days[d1.getDay()];
-
-      document.getElementById("time2").innerHTML = day +" "+ d.toLocaleTimeString();
-    }
-    </script>
-
-              <video id="myVideo" >
-                <source src="12.wav" type="audio/ogg">
-                 <source src="12.wav" type="audio/mpeg">
-               </video>
-  
-    <script src="running-time.js"></script>  
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-          const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-          
-          const d = new Date();
-          let day = days[d.getDay()];
-          document.getElementById("day").innerHTML = day;
-          </script>
-      <script>
-        setInterval(myTimer, 1000);
-        
-        function myTimer() {
-          const d = new Date();
-          document.getElementById("time").innerHTML = d.toLocaleTimeString();
-        }
-        </script>
-<script>
-const dm = new Date();
-d.setHours(12);
-document.getElementById("demo11").innerHTML = dm;
-</script>
-  <script>
-    document.getElementById("toastbtn").onclick = function() {
-      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-      var toastList = toastElList.map(function(toastEl) {
-        return new bootstrap.Toast(toastEl)
-      })
-      toastList.forEach(toast => toast.show()) 
-    }
-    </script>
-<script>
-                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                  return new bootstrap.Tooltip(tooltipTriggerEl)
-                })
-                </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js" defer></script>
 
 </body>
-</html
-
+</html>
