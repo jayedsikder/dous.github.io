@@ -1,0 +1,59 @@
+/* Scroll-Reveal Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button Hover Effects */
+.btn-outline-primary, 
+.btn-outline-dark, 
+.btn-outline-info, 
+.btn-outline-success, 
+.btn-secondary.dropdown-toggle,
+.w3-button { /* Added .w3-button for w3-css based nav buttons */
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added box-shadow transition */
+}
+
+.btn-outline-primary:hover, 
+.btn-outline-dark:hover, 
+.btn-outline-info:hover, 
+.btn-outline-success:hover, 
+.btn-secondary.dropdown-toggle:hover,
+.w3-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for buttons */
+}
+
+/* Portfolio Card Hover Effects */
+#portfolio .w3-card-4.w3-margin.w3-white {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#portfolio .w3-card-4.w3-margin.w3-white:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 12px 30px 0 rgba(0,0,0,0.19);
+}
+
+/* Gradient Text for Key Headings */
+.gradient-text {
+    background: -webkit-linear-gradient(45deg, #0d6efd, #198754 80%); /* Bootstrap primary to Bootstrap success green */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding-bottom: 0.1em; /* Small padding to prevent descenders from being clipped if font is large */
+}
+
+/* Ensure gradient text is still visible if gradient fails (e.g. very old browsers) */
+@supports not (-webkit-background-clip: text) {
+    .gradient-text {
+        color: #0d6efd; /* Fallback to a solid color */
+    }
+}
