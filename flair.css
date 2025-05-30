@@ -1,7 +1,7 @@
 /* Scroll-Reveal Animations */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px); /* Adjusted from 30px to 20px */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -11,35 +11,59 @@
 }
 
 /* Button Hover Effects */
-.btn-outline-primary, 
-.btn-outline-dark, 
-.btn-outline-info, 
-.btn-outline-success, 
-.btn-secondary.dropdown-toggle,
-.w3-button { /* Added .w3-button for w3-css based nav buttons */
-    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added box-shadow transition */
+.btn-outline-primary,
+.btn-outline-dark,
+.btn-outline-info,
+.btn-outline-success,
+.btn-secondary.dropdown-toggle {
+    /* Retain existing transitions if any, or add new ones */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, filter 0.2s ease-in-out;
 }
 
-.btn-outline-primary:hover, 
-.btn-outline-dark:hover, 
-.btn-outline-info:hover, 
-.btn-outline-success:hover, 
-.btn-secondary.dropdown-toggle:hover,
-.w3-button:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for buttons */
+/* General Button Hover Effect (Bootstrap & W3.CSS) */
+/* Specificity might require checking if .w3-button needs to be separate or combined */
+.btn:hover, 
+.w3-button:hover { /* Includes .btn-outline-* due to CSS specificity and inheritance */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Subtle shadow */
+    /* filter: brightness(1.1); /* Optional: if still desired, from previous rule */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Ensure filter transition if used */
 }
 
-/* Portfolio Card Hover Effects */
-#portfolio .w3-card-4.w3-margin.w3-white {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Navbar Link Hover Effect */
+#myNavbar a.w3-bar-item.w3-button:hover, 
+#navDemo a.w3-bar-item.w3-button:hover {
+    color: #007bff !important; /* Brighter color on hover - adjust if it clashes with theme */
+    background-color: rgba(0,0,0,0.05) !important; /* Very subtle background change */
+    /* transform: none !important; /* Override general .w3-button hover if it has transform */
+    /* box-shadow: none !important; /* Override general .w3-button hover if it has shadow */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+/* Ensure dark theme compatibility for navbar link hover */
+body.dark-theme #myNavbar a.w3-bar-item.w3-button:hover,
+body.dark-theme #navDemo a.w3-bar-item.w3-button:hover {
+    color: #bb86fc !important; /* Accent color for dark theme */
+    background-color: rgba(255,255,255,0.1) !important;
 }
 
-#portfolio .w3-card-4.w3-margin.w3-white:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 12px 30px 0 rgba(0,0,0,0.19);
+
+/* Portfolio Card Hover Effects & Other Cards */
+.w3-card-4.w3-margin.w3-white, .w3-card.w3-margin { /* Generalizing for other cards too */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Adjusted timing */
 }
+
+.w3-card-4.w3-margin.w3-white:hover, .w3-card.w3-margin:hover {
+    transform: scale(1.02); /* Removed translateY for a simpler scale */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Ensure dark theme cards also get appropriate hover if their base shadow/bg differs */
+body.dark-theme .w3-card-4.w3-margin.w3-white:hover, 
+body.dark-theme .w3-card.w3-margin:hover,
+body.dark-theme .w3-card-4.w3-margin:hover { /* Added generic .w3-card-4 for dark theme */
+    box-shadow: 0 8px 16px rgba(200,200,200,0.12); /* Lighter shadow for dark theme, less intense */
+}
+
 
 /* Gradient Text for Key Headings */
 .gradient-text {

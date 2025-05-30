@@ -1,5 +1,64 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    const body = document.body;
+
+    const updateButtonAppearance = (isDarkMode) => {
+        const iconClass = isDarkMode ? 'fa-sun-o' : 'fa-moon-o';
+        const text = isDarkMode ? ' Dark Mode' : ' Light Mode';
+        const moonIcon = '<i class="fa fa-moon-o"></i> Light Mode';
+        const sunIcon = '<i class="fa fa-sun-o"></i> Dark Mode';
+
+        if (themeToggleBtn) {
+            themeToggleBtn.innerHTML = isDarkMode ? sunIcon : moonIcon;
+        }
+        if (themeToggleBtnMobile) {
+            themeToggleBtnMobile.innerHTML = isDarkMode ? sunIcon : moonIcon;
+        }
+    };
+
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        updateButtonAppearance(true);
+    } else {
+        body.classList.remove('dark-theme'); // Ensure it's light
+        updateButtonAppearance(false);
+    }
+
+    const handleThemeToggle = () => {
+        body.classList.toggle('dark-theme');
+        const isDarkMode = body.classList.contains('dark-theme');
+        if (isDarkMode) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+        updateButtonAppearance(isDarkMode);
+        // Manually trigger navbar update if needed, as theme change might affect its appearance logic
+        if (window.myFunction) {
+            window.myFunction();
+        }
+    };
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', handleThemeToggle);
+    }
+    // Ensure mobile button also calls toggleFunction if it's part of its onclick attribute in HTML
+    // The toggleFunction is for the nav menu, not theme. The theme toggle is separate.
+    if (themeToggleBtnMobile) {
+        // Check if the mobile button already has toggleFunction in its onclick
+        // If not, or if it's only for theme, add the theme toggle listener:
+        themeToggleBtnMobile.addEventListener('click', function(event) {
+            // Prevent toggleFunction if it's also directly on the element's onclick for menu toggle
+            // This setup assumes the primary role of this specific ID is theme toggling.
+            // If it also toggles the nav menu via onclick="toggleFunction()", that will still run.
+            handleThemeToggle(); 
+        });
+    }
+
     // Modal Image Gallery
     window.onClick = function(element) {
         const modal = document.getElementById("modal01");
@@ -16,10 +75,22 @@ document.addEventListener('DOMContentLoaded', function() {
     window.myFunction = function() {
         var navbar = document.getElementById("myNavbar");
         if (navbar) {
+            const isDarkMode = document.body.classList.contains('dark-theme');
+            let classes = "w3-bar w3-card w3-animate-top";
+            if (!isDarkMode) {
+                classes += " w3-white";
+            }
+            // Base classes that should always be there before scroll logic
+            let baseNavbarClass = "w3-bar"; 
+
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+                navbar.className = classes;
             } else {
-                navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+                // Reset to base, theme class on body will handle navbar background via CSS
+                navbar.className = baseNavbarClass;
+                 // If dark theme is active, CSS should handle the navbar color.
+                 // If specific dark mode class for navbar is needed and gets removed, re-apply here.
+                 // For now, relying on body.dark-theme .w3-bar styling from theme.css
             }
         }
     }
