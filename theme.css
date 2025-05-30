@@ -1,0 +1,198 @@
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme .w3-bar, 
+body.dark-theme .w3-card, 
+body.dark-theme .w3-card-4, 
+body.dark-theme .modal-content, 
+body.dark-theme .offcanvas,
+body.dark-theme .w3-modal-content,
+body.dark-theme .sidenav {
+    background-color: #1e1e1e !important; /* Added important for overrides */
+    color: #e0e0e0 !important;
+}
+
+body.dark-theme .w3-button, 
+body.dark-theme .btn {
+    background-color: #333 !important; /* Added important for overrides */
+    color: #e0e0e0 !important;
+    border-color: #555 !important; /* For outlined buttons */
+}
+
+body.dark-theme .btn-outline-primary,
+body.dark-theme .btn-outline-success,
+body.dark-theme .btn-outline-info,
+body.dark-theme .btn-outline-dark,
+body.dark-theme .btn-outline-danger {
+    color: #bb86fc !important;
+    border-color: #bb86fc !important;
+}
+
+body.dark-theme .btn-outline-primary:hover,
+body.dark-theme .btn-outline-success:hover,
+body.dark-theme .btn-outline-info:hover,
+body.dark-theme .btn-outline-dark:hover,
+body.dark-theme .btn-outline-danger:hover {
+    background-color: #bb86fc !important;
+    color: #1e1e1e !important;
+}
+
+
+body.dark-theme a {
+    color: #bb86fc; 
+}
+
+body.dark-theme a:hover {
+    color: #9e66de; /* Slightly darker for hover */
+}
+
+body.dark-theme .w3-table-all th, 
+body.dark-theme .w3-table-all td, 
+body.dark-theme .w3-table-all tr,
+body.dark-theme .w3-table-all {
+    border-color: #444 !important; /* Added important for overrides */
+    color: #e0e0e0;
+}
+
+body.dark-theme .w3-striped tbody tr:nth-child(even) {
+    background-color: #2c2c2c; /* Slightly lighter than main dark background for stripes */
+}
+
+
+body.dark-theme .gradient-text {
+    /* For dark theme, gradient might not be ideal. Fallback to a bright color. */
+    background: -webkit-linear-gradient(#eee, #bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark-theme .w3-opacity, 
+body.dark-theme .w3-hover-opacity-off:hover {
+    opacity: 0.75; /* Adjust opacity for dark theme if needed */
+}
+
+body.dark-theme .w3-opacity-min {
+    opacity:0.50!important; /* Ensure high contrast elements are still visible */
+}
+
+
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme h5, 
+body.dark-theme h6 {
+    color: #f5f5f5; /* Lighter headings for dark theme */
+}
+
+/* Specific overrides for elements that might have inline styles or very specific selectors */
+body.dark-theme #myNavbar, 
+body.dark-theme #navDemo {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-theme .w3-bar-item.w3-button {
+    color: #e0e0e0 !important;
+}
+body.dark-theme .w3-bar-item.w3-button:hover {
+    background-color: #333 !important;
+    color: #bb86fc !important;
+}
+
+body.dark-theme .w3-display-middle .w3-black {
+    background-color: #101010 !important; /* Darker for emphasis elements */
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .bgimg-1 {
+    background-image: url('dark-theme-background.jpg'); /* Optional: if you want a different background image for dark theme */
+    /* Or just darken the existing one if it's a light image */
+    filter: brightness(0.7); 
+}
+
+body.dark-theme .w3-dark-grey {
+    background-color: #222 !important; /* Adjust w3 specific dark grey */
+    color: #e0e0e0 !important;
+}
+
+body.dark-theme .w3-light-grey {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+body.dark-theme .w3-white, body.dark-theme .w3-hover-white:hover {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+body.dark-theme .w3-text-grey, body.dark-theme .w3-hover-text-grey:hover{
+    color:#ababab!important;
+}
+
+body.dark-theme .toast {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+body.dark-theme .toast-header {
+    background-color: #333;
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+}
+body.dark-theme .btn-close { /* For toast close button */
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Ensure progress bars are visible */
+body.dark-theme .progress {
+    background-color: #333;
+}
+body.dark-theme .progress-bar.bg-dark {
+    background-color: #555 !important; /* Make sure it's different from the progress track */
+}
+body.dark-theme .progress-bar.bg-secondary {
+    background-color: #777 !important;
+}
+
+/* Adjust sidenav close button */
+body.dark-theme .sidenav .closebtn {
+    color: #e0e0e0;
+}
+body.dark-theme .sidenav .closebtn:hover {
+    color: #bb86fc;
+}
+
+/* Adjust modal close button */
+body.dark-theme .modal-header .btn-close {
+     filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Ensure portfolio image modal is styled */
+body.dark-theme #modal01 .w3-modal-content {
+    background-color: rgba(30, 30, 30, 0.95) !important; /* Slightly transparent dark background */
+}
+body.dark-theme #modal01 .w3-button { /* Close button on image modal */
+    color: #e0e0e0 !important;
+    background-color: #1e1e1e !important;
+}
+body.dark-theme #modal01 #caption {
+    color: #e0e0e0 !important;
+}
+
+/* Ensure dropdown menus are themed */
+body.dark-theme .dropdown-menu {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+}
+body.dark-theme .dropdown-item {
+    color: #e0e0e0;
+}
+body.dark-theme .dropdown-item:hover, body.dark-theme .dropdown-item:focus {
+    color: #1e1e1e;
+    background-color: #bb86fc;
+}
+body.dark-theme .btn-secondary.dropdown-toggle {
+    background-color: #383838 !important;
+    border-color: #555 !important;
+    color: #e0e0e0 !important;
+}
