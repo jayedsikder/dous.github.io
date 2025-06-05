@@ -59,6 +59,68 @@
         body.dark-mode a {
             color: #80d0ff;
         }
+        #aiChatWidget {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        #aiChatWidget.dark-mode {
+            background: #1f1f1f;
+            color: #eaeaea;
+        }
+        #aiChatWidget header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 8px;
+            background: #333;
+            color: #fff;
+        }
+        #aiChatMessages {
+            flex: 1;
+            padding: 6px;
+            overflow-y: auto;
+            font-size: 0.9em;
+        }
+        #aiChatForm {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        #aiChatForm input {
+            flex: 1;
+            border: none;
+            padding: 5px;
+        }
+        #aiChatForm button {
+            border: none;
+            background: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+        }
+        #aiChatToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -650,6 +712,20 @@
     <div class="w3-xlarge w3-section"> <i class="fa fa-facebook-official w3-hover-opacity"></i> <i class="fa fa-instagram w3-hover-opacity"></i> <i class="fa fa-snapchat w3-hover-opacity"></i> <i class="fa fa-pinterest-p w3-hover-opacity"></i> <i class="fa fa-twitter w3-hover-opacity"></i> <i class="fa fa-linkedin w3-hover-opacity"></i> </div>
     <p>Created by <a href="#" title="Jayed Sikder" target="_blank" class="w3-hover-text-green">Jayed Sikder BD24</a></p>
 </footer>
+
+<!-- AI Chat Widget -->
+<div id="aiChatWidget" class="w3-card">
+  <header>
+    <span>DeepSeek AI</span>
+    <button id="aiChatClose" aria-label="Close chat">&times;</button>
+  </header>
+  <div id="aiChatMessages"></div>
+  <form id="aiChatForm">
+    <input type="text" id="aiChatInput" placeholder="Ask anything..." required>
+    <button type="submit">Send</button>
+  </form>
+</div>
+<button id="aiChatToggle" aria-label="Open chat"><i class="fa fa-robot"></i></button>
    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js" defer></script>

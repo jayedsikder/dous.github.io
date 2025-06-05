@@ -165,4 +165,73 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
 
+    // AI Chat integration
+    const chatToggle = document.getElementById('aiChatToggle');
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatForm = document.getElementById('aiChatForm');
+    const chatInput = document.getElementById('aiChatInput');
+    const chatMessages = document.getElementById('aiChatMessages');
+
+    if(chatToggle && chatWidget){
+        chatToggle.addEventListener('click', () => {
+            chatWidget.style.display = 'flex';
+            chatToggle.style.display = 'none';
+        });
+    }
+    if(chatClose && chatWidget){
+        chatClose.addEventListener('click', () => {
+            chatWidget.style.display = 'none';
+            chatToggle.style.display = 'block';
+        });
+    }
+
+    function appendMessage(sender, text){
+        const div = document.createElement('div');
+        div.className = 'message ' + sender;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function fetchDeepSeek(prompt){
+        const apiKey = window.DEEPSEEK_API_KEY || '';
+        const payload = {
+            model: 'deepseek-chat',
+            messages: [{role:'user', content: prompt}],
+            stream: false
+        };
+        try{
+            const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + apiKey
+                },
+                body: JSON.stringify(payload)
+            });
+            if(res.ok){
+                const data = await res.json();
+                if(data.choices && data.choices[0].message){
+                    return data.choices[0].message.content.trim();
+                }
+            }
+        }catch(err){
+            console.error(err);
+        }
+        return 'AI service unavailable';
+    }
+
+    if(chatForm){
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if(!text) return;
+            appendMessage('user', text);
+            chatInput.value = '';
+            const reply = await fetchDeepSeek(text);
+            appendMessage('ai', reply);
+        });
+    }
+
 });
