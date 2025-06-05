@@ -188,10 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hugging Face API Integration
     async function fetchHuggingFaceModel(modelId, inputs, taskParams = {}) {
-        const token = window.HUGGINGFACE_API_KEY || '';
-        if (!token) {
-            return { error: "Hugging Face User Access Token is missing." };
-        }
+        const token = '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'; // Embedded API Token
 
         const apiUrl = `https://api-inference.huggingface.co/models/${modelId}`;
         let payload = { inputs: inputs, parameters: taskParams, options: { wait_for_model: true } };
@@ -284,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             appendMessage('ai', 'Thinking...'); // Temporary message
 
-            const hfResponse = await fetchHuggingFaceModel('microsoft/DialoGPT-medium', userText);
+            const hfResponse = await fetchHuggingFaceModel('facebook/blenderbot-400M-distill', userText);
             
             // Remove "Thinking..." message
             const thinkingMessage = Array.from(chatMessages.children).find(child => child.textContent === 'Thinking...' && child.classList.contains('ai'));
@@ -392,4 +389,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-
