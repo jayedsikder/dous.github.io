@@ -140,6 +140,9 @@
         #summaryOutput {
             white-space: pre-line;
         }
+        #translateOutput {
+            white-space: pre-line;
+        }
     </style>
 </head>
 <body>
@@ -732,6 +735,20 @@
     <textarea id="summaryInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
     <button id="summaryBtn" class="w3-button w3-blue w3-margin-top">Summarize</button>
     <div id="summaryOutput" class="w3-margin-top"></div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-translate">
+    <h3 class="w3-center gradient-text">AI Translator</h3>
+    <p class="w3-center">Translate text using DeepSeek AI.</p>
+    <textarea id="translateInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
+    <select id="translateLang" class="w3-select w3-margin-top">
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <option value="Chinese">Chinese</option>
+      <option value="German">German</option>
+    </select>
+    <button id="translateBtn" class="w3-button w3-blue w3-margin-top">Translate</button>
+    <div id="translateOutput" class="w3-margin-top"></div>
   </section>
 </main>
 

@@ -272,4 +272,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // AI Translation tool
+    const translateBtn = document.getElementById('translateBtn');
+    const translateInput = document.getElementById('translateInput');
+    const translateLang = document.getElementById('translateLang');
+    const translateOutput = document.getElementById('translateOutput');
+
+    if(translateBtn){
+        translateBtn.addEventListener('click', async () => {
+            const text = translateInput.value.trim();
+            const lang = translateLang.value;
+            if(!text) return;
+            translateOutput.textContent = 'Translating...';
+            const prompt = 'Translate the following text to ' + lang + ':\n' + text;
+            const reply = await fetchDeepSeek(prompt);
+            translateOutput.textContent = reply;
+        });
+    }
+
 });
