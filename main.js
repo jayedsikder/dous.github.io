@@ -102,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Show 10B Sidenav
-    var show10BButtonJs = document.querySelector('.btn-outline-info[onclick="openNav()"]'); 
-    // The openNav() is in HTML, this is for consistency if more logic was needed in JS.
+    // Show 10B Sidenav (openNav defined in HTML)
 
     // Scroll-Reveal Animations
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -120,5 +118,235 @@ document.addEventListener('DOMContentLoaded', function() {
     revealElements.forEach(element => {
         observer.observe(element);
     });
+
+    // Scroll progress bar and back to top
+    const progressBar = document.getElementById('scrollProgressBar');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = docHeight ? (scrollTop / docHeight) * 100 : 0;
+        if(progressBar){
+            progressBar.style.width = progress + '%';
+        }
+        if(backToTopBtn){
+            backToTopBtn.style.display = scrollTop > 300 ? 'block' : 'none';
+        }
+    });
+
+    if(backToTopBtn){
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkModeToggle');
+    if(darkToggle){
+        const initDark = localStorage.getItem('darkMode') === 'true';
+        if(initDark){
+            document.body.classList.add('dark-mode');
+            const icon = darkToggle.querySelector('i');
+            if(icon){
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            if(chatWidget){
+                chatWidget.classList.add('dark-mode');
+            }
+        }
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = darkToggle.querySelector('i');
+            const isDark = document.body.classList.contains('dark-mode');
+            if(isDark){
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('darkMode','true');
+                if(chatWidget){
+                    chatWidget.classList.add('dark-mode');
+                }
+            }else{
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('darkMode','false');
+                if(chatWidget){
+                    chatWidget.classList.remove('dark-mode');
+                }
+            }
+        });
+    }
+
+    // Typed hero text
+    const typedEl = document.getElementById('typed-text');
+    if(typedEl){
+        const messages = ['Server Among Us', 'Welcome to the Future', 'Learn & Grow'];
+        let mIndex = 0;
+        let charIndex = 0;
+        typedEl.textContent = '';
+        function type(){
+            if(charIndex < messages[mIndex].length){
+                typedEl.textContent += messages[mIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            }else{
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase(){
+            if(charIndex > 0){
+                typedEl.textContent = messages[mIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, 50);
+            }else{
+                mIndex = (mIndex + 1) % messages.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
+    }
+
+    // AI Chat integration
+    const chatToggle = document.getElementById('aiChatToggle');
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatForm = document.getElementById('aiChatForm');
+    const chatInput = document.getElementById('aiChatInput');
+    const chatMessages = document.getElementById('aiChatMessages');
+    document.body.classList.add('anim-bg');
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if(target){
+                e.preventDefault();
+                target.scrollIntoView({behavior:'smooth'});
+            }
+        });
+    });
+
+    if(chatToggle && chatWidget){
+        chatToggle.addEventListener('click', () => {
+            chatWidget.style.display = 'flex';
+            chatToggle.style.display = 'none';
+        });
+    }
+    if(chatClose && chatWidget){
+        chatClose.addEventListener('click', () => {
+            chatWidget.style.display = 'none';
+            chatToggle.style.display = 'block';
+        });
+    }
+
+    function appendMessage(sender, text){
+        const div = document.createElement('div');
+        div.className = 'message ' + sender;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function fetchDeepSeek(prompt){
+        const apiKey = window.DEEPSEEK_API_KEY || '';
+        if(!apiKey){
+            return 'DeepSeek API key missing';
+        }
+        const payload = {
+            model: 'deepseek-chat',
+            messages: [{role:'user', content: prompt}],
+            stream: false
+        };
+        try{
+            const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + apiKey
+                },
+                body: JSON.stringify(payload)
+            });
+            if(res.ok){
+                const data = await res.json();
+                if(data.choices && data.choices[0].message){
+                    return data.choices[0].message.content.trim();
+                }
+                return 'Unexpected response';
+            }
+            if(res.status === 401){
+                return 'Invalid DeepSeek API key';
+            }
+            if(res.status === 503){
+                return 'DeepSeek service unavailable';
+            }
+            console.error('DeepSeek error', res.status);
+            return 'DeepSeek service error';
+        }catch(err){
+            console.error(err);
+            return 'Network error';
+        }
+    }
+
+    if(chatForm){
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if(!text) return;
+            appendMessage('user', text);
+            chatInput.value = '';
+            const loading = document.createElement('div');
+            loading.className = 'message ai';
+            const spin = document.createElement('div');
+            spin.className = 'spinner';
+            loading.appendChild(spin);
+            chatMessages.appendChild(loading);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            const reply = await fetchDeepSeek(text);
+            chatMessages.removeChild(loading);
+            appendMessage('ai', reply);
+        });
+    }
+
+    // AI Summary tool
+    const summaryBtn = document.getElementById('summaryBtn');
+    const summaryInput = document.getElementById('summaryInput');
+    const summaryOutput = document.getElementById('summaryOutput');
+
+    if(summaryBtn){
+        summaryBtn.addEventListener('click', async () => {
+            const text = summaryInput.value.trim();
+            if(!text) return;
+            summaryBtn.disabled = true;
+            summaryBtn.classList.add('w3-disabled');
+            summaryOutput.textContent = 'Summarizing...';
+            const prompt = 'Summarize the following text in a short paragraph:\n' + text;
+            const reply = await fetchDeepSeek(prompt);
+            summaryOutput.textContent = reply;
+            summaryBtn.disabled = false;
+            summaryBtn.classList.remove('w3-disabled');
+        });
+    }
+
+    // AI Translation tool
+    const translateBtn = document.getElementById('translateBtn');
+    const translateInput = document.getElementById('translateInput');
+    const translateLang = document.getElementById('translateLang');
+    const translateOutput = document.getElementById('translateOutput');
+
+    if(translateBtn){
+        translateBtn.addEventListener('click', async () => {
+            const text = translateInput.value.trim();
+            const lang = translateLang.value;
+            if(!text) return;
+            translateBtn.disabled = true;
+            translateBtn.classList.add('w3-disabled');
+            translateOutput.textContent = 'Translating...';
+            const prompt = 'Translate the following text to ' + lang + ':\n' + text;
+            const reply = await fetchDeepSeek(prompt);
+            translateOutput.textContent = reply;
+            translateBtn.disabled = false;
+            translateBtn.classList.remove('w3-disabled');
+        });
+    }
 
 });
