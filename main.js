@@ -121,4 +121,48 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkModeToggle');
+    if(darkToggle){
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = darkToggle.querySelector('i');
+            if(document.body.classList.contains('dark-mode')){
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }else{
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    }
+
+    // Typed hero text
+    const typedEl = document.getElementById('typed-text');
+    if(typedEl){
+        const messages = ['Server Among Us', 'Welcome to the Future', 'Learn & Grow'];
+        let mIndex = 0;
+        let charIndex = 0;
+        function type(){
+            if(charIndex < messages[mIndex].length){
+                typedEl.textContent += messages[mIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            }else{
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase(){
+            if(charIndex > 0){
+                typedEl.textContent = messages[mIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, 50);
+            }else{
+                mIndex = (mIndex + 1) % messages.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
+    }
+
 });
