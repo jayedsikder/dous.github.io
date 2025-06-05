@@ -194,6 +194,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatForm = document.getElementById('aiChatForm');
     const chatInput = document.getElementById('aiChatInput');
     const chatMessages = document.getElementById('aiChatMessages');
+    document.body.classList.add('anim-bg');
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if(target){
+                e.preventDefault();
+                target.scrollIntoView({behavior:'smooth'});
+            }
+        });
+    });
 
     if(chatToggle && chatWidget){
         chatToggle.addEventListener('click', () => {
@@ -218,6 +229,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchDeepSeek(prompt){
         const apiKey = window.DEEPSEEK_API_KEY || '';
+        if(!apiKey){
+            return 'DeepSeek API key missing';
+        }
         const payload = {
             model: 'deepseek-chat',
             messages: [{role:'user', content: prompt}],
@@ -237,11 +251,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(data.choices && data.choices[0].message){
                     return data.choices[0].message.content.trim();
                 }
+            } else {
+                console.error('DeepSeek error', res.status);
+                return 'DeepSeek service error';
             }
         }catch(err){
             console.error(err);
+            return 'Network error or invalid key';
         }
-        return 'AI service unavailable';
+        return 'Unexpected response';
     }
 
     if(chatForm){

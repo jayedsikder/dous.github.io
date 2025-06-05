@@ -143,6 +143,19 @@
         #translateOutput {
             white-space: pre-line;
         }
+        body.anim-bg {
+            background: linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d);
+            background-size: 600% 600%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+        }
+        body.dark-mode.anim-bg {
+            background: linear-gradient(45deg,#000428,#004e92,#000428);
+        }
     </style>
 </head>
 <body>
