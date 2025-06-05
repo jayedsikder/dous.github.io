@@ -102,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Show 10B Sidenav
-    var show10BButtonJs = document.querySelector('.btn-outline-info[onclick="openNav()"]'); 
-    // The openNav() is in HTML, this is for consistency if more logic was needed in JS.
+    // Show 10B Sidenav (openNav defined in HTML)
 
     // Scroll-Reveal Animations
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -143,18 +141,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Pre-fetch chat widget elements so dark mode logic can access them
+    const chatToggle = document.getElementById('aiChatToggle');
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatForm = document.getElementById('aiChatForm');
+    const chatInput = document.getElementById('aiChatInput');
+    const chatMessages = document.getElementById('aiChatMessages');
+
     // Dark mode toggle
     const darkToggle = document.getElementById('darkModeToggle');
     if(darkToggle){
+        const initDark = localStorage.getItem('darkMode') === 'true';
+        if(initDark){
+            document.body.classList.add('dark-mode');
+            const icon = darkToggle.querySelector('i');
+            if(icon){
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            if(chatWidget){ // Check if chatWidget exists
+                chatWidget.classList.add('dark-mode');
+            }
+        }
         darkToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const icon = darkToggle.querySelector('i');
-            if(document.body.classList.contains('dark-mode')){
+            const isDark = document.body.classList.contains('dark-mode');
+            if(isDark){
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+                localStorage.setItem('darkMode','true');
+                if(chatWidget){ // Check if chatWidget exists
+                    chatWidget.classList.add('dark-mode');
+                }
             }else{
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
+                localStorage.setItem('darkMode','false');
+                if(chatWidget){ // Check if chatWidget exists
+                    chatWidget.classList.remove('dark-mode');
+                }
             }
         });
     }
@@ -165,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const messages = ['Server Among Us', 'Welcome to the Future', 'Learn & Grow'];
         let mIndex = 0;
         let charIndex = 0;
+        typedEl.textContent = ''; // Clear initial content
         function type(){
             if(charIndex < messages[mIndex].length){
                 typedEl.textContent += messages[mIndex].charAt(charIndex);
@@ -187,14 +215,30 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
 
-    // AI Chat integration
-    const chatToggle = document.getElementById('aiChatToggle');
-    const chatWidget = document.getElementById('aiChatWidget');
-    const chatClose = document.getElementById('aiChatClose');
-    const chatForm = document.getElementById('aiChatForm');
-    const chatInput = document.getElementById('aiChatInput');
-    const chatMessages = document.getElementById('aiChatMessages');
+    // Add animated background
+    document.body.classList.add('anim-bg');
 
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            const targetSelector = anchor.getAttribute('href');
+            // Ensure targetSelector is a valid ID selector (starts with # and has more chars)
+            if (targetSelector && targetSelector.length > 1 && targetSelector.startsWith('#')) {
+                try {
+                    const target = document.querySelector(targetSelector);
+                    if(target){
+                        e.preventDefault();
+                        target.scrollIntoView({behavior:'smooth'});
+                    }
+                } catch (error) {
+                    // Handle potential invalid selector errors if needed, though basic check above helps
+                    console.warn("Smooth scroll failed for selector:", targetSelector, error);
+                }
+            }
+        });
+    });
+    
+    // AI Chat integration (chat elements are already fetched above)
     if(chatToggle && chatWidget){
         chatToggle.addEventListener('click', () => {
             chatWidget.style.display = 'flex';
@@ -204,11 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if(chatClose && chatWidget){
         chatClose.addEventListener('click', () => {
             chatWidget.style.display = 'none';
-            chatToggle.style.display = 'block';
+            if (chatToggle) chatToggle.style.display = 'block'; // Show toggle if it exists
         });
     }
 
     function appendMessage(sender, text){
+        if (!chatMessages) return; // Guard against chatMessages not existing
         const div = document.createElement('div');
         div.className = 'message ' + sender;
         div.textContent = text;
@@ -217,11 +262,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function fetchDeepSeek(prompt){
-        const apiKey = window.DEEPSEEK_API_KEY || '';
+        const apiKey = window.DEEPSEEK_API_KEY || ''; // Ensure window.DEEPSEEK_API_KEY is defined elsewhere or provide it here
+        if(!apiKey){
+            return 'DeepSeek API key missing. Please configure it.'; // More informative message
+        }
         const payload = {
-            model: 'deepseek-chat',
+            model: 'deepseek-chat', // or 'deepseek-coder' if more appropriate for some tasks
             messages: [{role:'user', content: prompt}],
-            stream: false
+            stream: false // Set to true if you want to handle streaming responses
         };
         try{
             const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
@@ -234,24 +282,52 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             if(res.ok){
                 const data = await res.json();
-                if(data.choices && data.choices[0].message){
+                if(data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content){
                     return data.choices[0].message.content.trim();
                 }
+                return 'Unexpected response structure from DeepSeek API.'; // More specific error
             }
+            // Handle specific HTTP error statuses
+            if(res.status === 401){
+                return 'Invalid DeepSeek API key. Please check your credentials.';
+            }
+            if(res.status === 429){
+                return 'Rate limit exceeded or quota reached for DeepSeek API.';
+            }
+            if(res.status === 503){
+                return 'DeepSeek service is temporarily unavailable. Please try again later.';
+            }
+            // General error for other statuses
+            const errorBody = await res.text(); // Try to get more info from error body
+            console.error('DeepSeek API error:', res.status, errorBody);
+            return `DeepSeek service error (Status: ${res.status}).`;
         }catch(err){
-            console.error(err);
+            console.error('Network or other error during DeepSeek fetch:', err);
+            return 'Network error or issue connecting to AI service.'; // More user-friendly
         }
-        return 'AI service unavailable';
     }
 
     if(chatForm){
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!chatInput || !chatMessages) return; // Guard against elements not existing
             const text = chatInput.value.trim();
             if(!text) return;
             appendMessage('user', text);
             chatInput.value = '';
+            
+            // Add loading spinner
+            const loading = document.createElement('div');
+            loading.className = 'message ai'; // Style as AI message
+            const spin = document.createElement('div');
+            spin.className = 'spinner'; // Your CSS class for spinner
+            loading.appendChild(spin);
+            chatMessages.appendChild(loading);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
             const reply = await fetchDeepSeek(text);
+            
+            chatMessages.removeChild(loading); // Remove spinner
             appendMessage('ai', reply);
         });
     }
@@ -261,14 +337,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const summaryInput = document.getElementById('summaryInput');
     const summaryOutput = document.getElementById('summaryOutput');
 
-    if(summaryBtn){
+    if(summaryBtn && summaryInput && summaryOutput){
         summaryBtn.addEventListener('click', async () => {
             const text = summaryInput.value.trim();
             if(!text) return;
+            
+            summaryBtn.disabled = true;
+            summaryBtn.classList.add('w3-disabled'); // Optional: W3.CSS specific disabling style
             summaryOutput.textContent = 'Summarizing...';
-            const prompt = 'Summarize the following text in a short paragraph:\n' + text;
+            
+            const prompt = 'Summarize the following text in a concise paragraph:\n' + text; // Adjusted prompt
             const reply = await fetchDeepSeek(prompt);
+            
             summaryOutput.textContent = reply;
+            summaryBtn.disabled = false;
+            summaryBtn.classList.remove('w3-disabled');
         });
     }
 
@@ -278,16 +361,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const translateLang = document.getElementById('translateLang');
     const translateOutput = document.getElementById('translateOutput');
 
-    if(translateBtn){
+    if(translateBtn && translateInput && translateLang && translateOutput){
         translateBtn.addEventListener('click', async () => {
             const text = translateInput.value.trim();
             const lang = translateLang.value;
             if(!text) return;
+
+            translateBtn.disabled = true;
+            translateBtn.classList.add('w3-disabled'); // Optional: W3.CSS specific disabling style
             translateOutput.textContent = 'Translating...';
+            
             const prompt = 'Translate the following text to ' + lang + ':\n' + text;
             const reply = await fetchDeepSeek(prompt);
+            
             translateOutput.textContent = reply;
+            translateBtn.disabled = false;
+            translateBtn.classList.remove('w3-disabled');
         });
     }
-
 });

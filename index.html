@@ -105,6 +105,35 @@
             color: #fff;
             padding: 5px 10px;
         }
+        .message {
+            margin: 4px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            max-width: 90%;
+        }
+        .message.user {
+            background: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+        .message.ai {
+            background: #f1f1f1;
+        }
+        body.dark-mode #aiChatWidget .message.ai {
+            background: #333;
+            color: #eaeaea;
+        }
+        .spinner {
+            border: 2px solid #ccc;
+            border-top-color: #007bff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
         #aiChatToggle {
             position: fixed;
             bottom: 20px;
@@ -143,12 +172,25 @@
         #translateOutput {
             white-space: pre-line;
         }
+        body.anim-bg {
+            background: linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d);
+            background-size: 600% 600%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+        }
+        body.dark-mode.anim-bg {
+            background: linear-gradient(45deg,#000428,#004e92,#000428);
+        }
     </style>
 </head>
 <body>
 
 <div id="scrollProgressBar"></div>
-<button id="backToTop" class="w3-button w3-blue" aria-label="Back to top">&uarr;</button>
+<button id="backToTop" class="w3-button w3-blue" aria-label="Back to top">↑</button>
 
 <nav class="w3-top">
     <div class="w3-bar" id="myNavbar">
@@ -197,7 +239,7 @@
 
   <section id="class-10b-schedule" class="sidenav-section reveal-on-scroll">
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn js-hover w3-left" onclick="closeNav()" aria-label="Close 10B schedule panel">&times;</a>
+      <a href="javascript:void(0)" class="closebtn js-hover w3-left" onclick="closeNav()" aria-label="Close 10B schedule panel">×</a>
       <em class="w3-large w3-margin-top w3-hide-small" id="dt"></em>
       <em class="w3-large w3-left w3-hide-large w3-hide-medium" id="dt1"></em>
       <br>
@@ -752,7 +794,7 @@
   </section>
 </main>
 
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'"> <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span> <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"> <img id="img01" class="w3-image"> <p id="caption" class="w3-opacity w3-large"></p> </div> </div>
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'"> <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span> <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"> <img id="img01" class="w3-image" alt="Modal image"> <p id="caption" class="w3-opacity w3-large"></p> </div> </div>
 
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
     <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -764,7 +806,7 @@
 <div id="aiChatWidget" class="w3-card">
   <header>
     <span>DeepSeek AI</span>
-    <button id="aiChatClose" aria-label="Close chat">&times;</button>
+    <button id="aiChatClose" aria-label="Close chat">×</button>
   </header>
   <div id="aiChatMessages"></div>
   <form id="aiChatForm">
