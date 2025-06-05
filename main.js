@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Modal Image Gallery
+    // Modal Image Galleryhi
     window.onClick = function(element) {
         const modal = document.getElementById("modal01");
         const img = document.getElementById("img01");
