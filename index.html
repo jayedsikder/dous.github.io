@@ -38,9 +38,159 @@
         .progress {
             margin-bottom: 1rem; /* Add some space below progress bars */
         }
+        #typed-text {
+            display: inline-block;
+            border-right: 2px solid #fff;
+            padding-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #eaeaea;
+        }
+        body.dark-mode .w3-bar,
+        body.dark-mode .w3-modal-content,
+        body.dark-mode .w3-card-4,
+        body.dark-mode .w3-container.w3-white {
+            background-color: #1f1f1f;
+            color: #eaeaea;
+        }
+        body.dark-mode a {
+            color: #80d0ff;
+        }
+        #aiChatWidget {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        #aiChatWidget.dark-mode {
+            background: #1f1f1f;
+            color: #eaeaea;
+        }
+        #aiChatWidget header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 8px;
+            background: #333;
+            color: #fff;
+        }
+        #aiChatMessages {
+            flex: 1;
+            padding: 6px;
+            overflow-y: auto;
+            font-size: 0.9em;
+        }
+        #aiChatForm {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        #aiChatForm input {
+            flex: 1;
+            border: none;
+            padding: 5px;
+        }
+        #aiChatForm button {
+            border: none;
+            background: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+        }
+        .message {
+            margin: 4px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            max-width: 90%;
+        }
+        .message.user {
+            background: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+        .message.ai {
+            background: #f1f1f1;
+        }
+        body.dark-mode #aiChatWidget .message.ai {
+            background: #333;
+            color: #eaeaea;
+        }
+        .spinner {
+            border: 2px solid #ccc;
+            border-top-color: #007bff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        #aiChatToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: linear-gradient(90deg, #00f, #0ff);
+            z-index: 1001;
+        }
+        #backToTop {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        #summaryOutput {
+            white-space: pre-line;
+        }
+        #translateOutput {
+            white-space: pre-line;
+        }
+        body.anim-bg {
+            background: linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d);
+            background-size: 600% 600%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+        }
+        body.dark-mode.anim-bg {
+            background: linear-gradient(45deg,#000428,#004e92,#000428);
+        }
     </style>
 </head>
 <body>
+
+<div id="scrollProgressBar"></div>
+<button id="backToTop" class="w3-button w3-blue" aria-label="Back to top">&uarr;</button>
 
 <nav class="w3-top">
     <div class="w3-bar" id="myNavbar">
@@ -52,6 +202,7 @@
       <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
       <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fab fa-google-drive"></i> GOOGLE DRIVE</a>
       <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+      <button id="darkModeToggle" class="w3-bar-item w3-button w3-right" aria-label="Toggle dark mode"><i class="fa fa-moon"></i></button>
       <!-- Search functionality removed -->
     </div>
   
@@ -61,13 +212,14 @@
       <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
       <a href="https://accounts.google.com/ServiceLogin?service=wise&passive=true&continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&utm_medium=button&utm_campaign=web&utm_content=gotodrive&usp=gtd&ltmpl=drive" target="_blank" class="w3-bar-item w3-button" onclick="toggleFunction()"><i class="fab fa-google-drive"></i> GOOGLE DRIVE</a>
       <a href="https://www.facebook.com/messages/t/4067569863335888" target="_blank" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+      <button class="w3-bar-item w3-button" onclick="toggleFunction(); document.getElementById('darkModeToggle').click();"><i class="fa fa-moon"></i> Dark Mode</button>
       <!-- Search link removed -->
     </div>
 </nav>
 
 <header class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Server <span class="w3-hide-small">Among</span> Us</span>
+    <span id="typed-text" class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"></span>
   </div>
 </header>
 
@@ -615,9 +767,31 @@
           </div>
           <hr> 
         </aside> 
-      </div> 
-    </div> 
-  </section> 
+      </div>
+    </div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-tools">
+    <h3 class="w3-center gradient-text">AI Summary</h3>
+    <p class="w3-center">Paste text and let DeepSeek create a short summary.</p>
+    <textarea id="summaryInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
+    <button id="summaryBtn" class="w3-button w3-blue w3-margin-top">Summarize</button>
+    <div id="summaryOutput" class="w3-margin-top"></div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-translate">
+    <h3 class="w3-center gradient-text">AI Translator</h3>
+    <p class="w3-center">Translate text using DeepSeek AI.</p>
+    <textarea id="translateInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
+    <select id="translateLang" class="w3-select w3-margin-top">
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <option value="Chinese">Chinese</option>
+      <option value="German">German</option>
+    </select>
+    <button id="translateBtn" class="w3-button w3-blue w3-margin-top">Translate</button>
+    <div id="translateOutput" class="w3-margin-top"></div>
+  </section>
 </main>
 
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'"> <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span> <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"> <img id="img01" class="w3-image"> <p id="caption" class="w3-opacity w3-large"></p> </div> </div>
@@ -627,6 +801,20 @@
     <div class="w3-xlarge w3-section"> <i class="fa fa-facebook-official w3-hover-opacity"></i> <i class="fa fa-instagram w3-hover-opacity"></i> <i class="fa fa-snapchat w3-hover-opacity"></i> <i class="fa fa-pinterest-p w3-hover-opacity"></i> <i class="fa fa-twitter w3-hover-opacity"></i> <i class="fa fa-linkedin w3-hover-opacity"></i> </div>
     <p>Created by <a href="#" title="Jayed Sikder" target="_blank" class="w3-hover-text-green">Jayed Sikder BD24</a></p>
 </footer>
+
+<!-- AI Chat Widget -->
+<div id="aiChatWidget" class="w3-card">
+  <header>
+    <span>DeepSeek AI</span>
+    <button id="aiChatClose" aria-label="Close chat">&times;</button>
+  </header>
+  <div id="aiChatMessages"></div>
+  <form id="aiChatForm">
+    <input type="text" id="aiChatInput" placeholder="Ask anything..." required>
+    <button type="submit">Send</button>
+  </form>
+</div>
+<button id="aiChatToggle" aria-label="Open chat"><i class="fa fa-robot"></i></button>
    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js" defer></script>
