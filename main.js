@@ -218,12 +218,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchDeepSeek(prompt){
         const apiKey = window.DEEPSEEK_API_KEY || '';
+        if (!apiKey) {
+            console.warn("DeepSeek API Key is missing. Aborting API call.");
+            return "Error: DeepSeek API Key is missing. Please provide it when prompted.";
+        }
+
         const payload = {
-            model: 'deepseek-chat',
+            model: 'deepseek-chat', // Ensure this model name is correct
             messages: [{role:'user', content: prompt}],
             stream: false
         };
-        try{
+
+        try {
             const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -232,16 +238,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify(payload)
             });
-            if(res.ok){
+
+            if (res.ok) {
                 const data = await res.json();
-                if(data.choices && data.choices[0].message){
+                if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
                     return data.choices[0].message.content.trim();
+                } else {
+                    console.error('API response missing expected data structure:', data);
+                    return 'AI service returned an unexpected response. Please try again.';
+                }
+            } else {
+                // Attempt to parse error response from DeepSeek, if available
+                let errorBody = null;
+                try {
+                    errorBody = await res.json();
+                } catch (e) {
+                    // Ignore if error response is not JSON
+                }
+
+                console.error('DeepSeek API Error:', {
+                    status: res.status,
+                    statusText: res.statusText,
+                    url: res.url,
+                    errorBody: errorBody
+                });
+
+                if (res.status === 401) {
+                    return 'Error: Unauthorized. Please check your DeepSeek API Key.';
+                } else if (res.status === 429) {
+                    return 'Error: Too many requests. Please wait a moment and try again.';
+                } else if (res.status >= 500) {
+                    return 'Error: AI service is currently unavailable (server error). Please try again later.';
+                } else {
+                    return `Error: AI service request failed (Status: ${res.status}). Please try again.`;
                 }
             }
-        }catch(err){
-            console.error(err);
+        } catch (err) {
+            console.error('Network error or issue fetching from DeepSeek API:', err);
+            return 'Error: Could not connect to AI service. Please check your network connection.';
         }
-        return 'AI service unavailable';
     }
 
     if(chatForm){
@@ -291,3 +326,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
