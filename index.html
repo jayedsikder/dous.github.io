@@ -172,6 +172,12 @@
         #translateOutput {
             white-space: pre-line;
         }
+        #grammarOutput {
+            white-space: pre-line;
+        }
+        #ideaOutput {
+            white-space: pre-line;
+        }
         body.anim-bg {
             background: linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d);
             background-size: 600% 600%;
@@ -791,6 +797,22 @@
     </select>
     <button id="translateBtn" class="w3-button w3-blue w3-margin-top">Translate</button>
     <div id="translateOutput" class="w3-margin-top"></div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-grammar">
+    <h3 class="w3-center gradient-text">AI Grammar Fixer</h3>
+    <p class="w3-center">Improve the grammar of your text.</p>
+    <textarea id="grammarInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
+    <button id="grammarBtn" class="w3-button w3-blue w3-margin-top">Fix Grammar</button>
+    <div id="grammarOutput" class="w3-margin-top"></div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-ideas">
+    <h3 class="w3-center gradient-text">AI Idea Generator</h3>
+    <p class="w3-center">Get creative ideas from DeepSeek.</p>
+    <input id="ideaPrompt" class="w3-input w3-border" placeholder="Topic or keywords">
+    <button id="ideaBtn" class="w3-button w3-blue w3-margin-top">Generate Ideas</button>
+    <div id="ideaOutput" class="w3-margin-top"></div>
   </section>
 </main>
 

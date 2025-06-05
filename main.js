@@ -326,6 +326,46 @@ document.addEventListener('DOMContentLoaded', function() {
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
             const reply = await fetchDeepSeek(text);
+    // AI Grammar Fixer
+    const grammarBtn = document.getElementById('grammarBtn');
+    const grammarInput = document.getElementById('grammarInput');
+    const grammarOutput = document.getElementById('grammarOutput');
+
+    if(grammarBtn){
+        grammarBtn.addEventListener('click', async () => {
+            const text = grammarInput.value.trim();
+            if(!text) return;
+            grammarBtn.disabled = true;
+            grammarBtn.classList.add('w3-disabled');
+            grammarOutput.textContent = 'Fixing...';
+            const prompt = 'Correct the grammar of the following text:\n' + text;
+            const reply = await fetchDeepSeek(prompt);
+            grammarOutput.textContent = reply;
+            grammarBtn.disabled = false;
+            grammarBtn.classList.remove('w3-disabled');
+        });
+    }
+
+    // AI Idea Generator
+    const ideaBtn = document.getElementById('ideaBtn');
+    const ideaPrompt = document.getElementById('ideaPrompt');
+    const ideaOutput = document.getElementById('ideaOutput');
+
+    if(ideaBtn){
+        ideaBtn.addEventListener('click', async () => {
+            const topic = ideaPrompt.value.trim();
+            if(!topic) return;
+            ideaBtn.disabled = true;
+            ideaBtn.classList.add('w3-disabled');
+            ideaOutput.textContent = 'Generating...';
+            const prompt = 'Give me three creative ideas about: ' + topic;
+            const reply = await fetchDeepSeek(prompt);
+            ideaOutput.textContent = reply;
+            ideaBtn.disabled = false;
+            ideaBtn.classList.remove('w3-disabled');
+        });
+    }
+
             
             chatMessages.removeChild(loading); // Remove spinner
             appendMessage('ai', reply);
