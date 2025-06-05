@@ -102,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Show 10B Sidenav
-    var show10BButtonJs = document.querySelector('.btn-outline-info[onclick="openNav()"]'); 
-    // The openNav() is in HTML, this is for consistency if more logic was needed in JS.
+    // Show 10B Sidenav (openNav defined in HTML)
 
     // Scroll-Reveal Animations
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -154,18 +152,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
             }
+            if(chatWidget){
+                chatWidget.classList.add('dark-mode');
+            }
         }
         darkToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const icon = darkToggle.querySelector('i');
-            if(document.body.classList.contains('dark-mode')){
+            const isDark = document.body.classList.contains('dark-mode');
+            if(isDark){
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
                 localStorage.setItem('darkMode','true');
+                if(chatWidget){
+                    chatWidget.classList.add('dark-mode');
+                }
             }else{
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
                 localStorage.setItem('darkMode','false');
+                if(chatWidget){
+                    chatWidget.classList.remove('dark-mode');
+                }
             }
         });
     }
@@ -176,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const messages = ['Server Among Us', 'Welcome to the Future', 'Learn & Grow'];
         let mIndex = 0;
         let charIndex = 0;
+        typedEl.textContent = '';
         function type(){
             if(charIndex < messages[mIndex].length){
                 typedEl.textContent += messages[mIndex].charAt(charIndex);
