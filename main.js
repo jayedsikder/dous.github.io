@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(chatClose && chatWidget){
         chatClose.addEventListener('click', () => {
             chatWidget.style.display = 'none';
-            chatToggle.style.display = 'block';
+            chatToggle.style.display = 'flex';
         });
     }
 
