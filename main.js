@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show 10B Sidenav
     var show10BButtonJs = document.querySelector('.btn-outline-info[onclick="openNav()"]'); 
-    // The openNav() is in HTML, this is for consistency if more logic was needed in JS.
 
     // Scroll-Reveal Animations
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -112,10 +111,10 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once visible
+                observer.unobserve(entry.target); 
             }
         });
-    }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+    }, { threshold: 0.1 }); 
 
     revealElements.forEach(element => {
         observer.observe(element);
@@ -187,13 +186,72 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
 
-    // AI Chat integration
+    // Hugging Face API Integration
+    async function fetchHuggingFaceModel(modelId, inputs, taskParams = {}) {
+        const token = window.HUGGINGFACE_API_KEY || '';
+        if (!token) {
+            return { error: "Hugging Face User Access Token is missing." };
+        }
+
+        const apiUrl = `https://api-inference.huggingface.co/models/${modelId}`;
+        let payload = { inputs: inputs, parameters: taskParams, options: { wait_for_model: true } };
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                return data; 
+            } else {
+                let errorBody = null;
+                try {
+                    errorBody = await response.json();
+                } catch (e) { /* ignore if not json */ }
+
+                console.error('Hugging Face API Error:', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    url: apiUrl,
+                    modelId: modelId,
+                    errorBody: errorBody
+                });
+
+                if (response.status === 401) {
+                    return { error: 'Unauthorized. Check your Hugging Face Token.' };
+                }
+                if (response.status === 429) {
+                    return { error: 'Too many requests to Hugging Face API. Please wait.' };
+                }
+                if (response.status === 503) { 
+                    return { error: `Model ${modelId} is currently loading. Please try again in a few moments. (${errorBody?.error || ''})` };
+                }
+                return { error: `API request failed (Status: ${response.status}) for model ${modelId}. ${(errorBody?.error || response.statusText)}` };
+            }
+        } catch (err) {
+            console.error('Network error or issue fetching from Hugging Face API:', err);
+            return { error: 'Network error. Could not connect to Hugging Face service.' };
+        }
+    }
+
+    // AI Chat Widget
     const chatToggle = document.getElementById('aiChatToggle');
     const chatWidget = document.getElementById('aiChatWidget');
     const chatClose = document.getElementById('aiChatClose');
     const chatForm = document.getElementById('aiChatForm');
     const chatInput = document.getElementById('aiChatInput');
     const chatMessages = document.getElementById('aiChatMessages');
+    const aiChatHeader = document.querySelector('#aiChatWidget header span');
+
+    if(aiChatHeader) {
+        aiChatHeader.textContent = 'Hugging Face Chat'; // Update header
+    }
 
     if(chatToggle && chatWidget){
         chatToggle.addEventListener('click', () => {
@@ -216,78 +274,34 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    async function fetchDeepSeek(prompt){
-        const apiKey = window.DEEPSEEK_API_KEY || '';
-        if (!apiKey) {
-            console.warn("DeepSeek API Key is missing. Aborting API call.");
-            return "Error: DeepSeek API Key is missing. Please provide it when prompted.";
-        }
-
-        const payload = {
-            model: 'deepseek-chat', // Ensure this model name is correct
-            messages: [{role:'user', content: prompt}],
-            stream: false
-        };
-
-        try {
-            const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + apiKey
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (res.ok) {
-                const data = await res.json();
-                if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
-                    return data.choices[0].message.content.trim();
-                } else {
-                    console.error('API response missing expected data structure:', data);
-                    return 'AI service returned an unexpected response. Please try again.';
-                }
-            } else {
-                // Attempt to parse error response from DeepSeek, if available
-                let errorBody = null;
-                try {
-                    errorBody = await res.json();
-                } catch (e) {
-                    // Ignore if error response is not JSON
-                }
-
-                console.error('DeepSeek API Error:', {
-                    status: res.status,
-                    statusText: res.statusText,
-                    url: res.url,
-                    errorBody: errorBody
-                });
-
-                if (res.status === 401) {
-                    return 'Error: Unauthorized. Please check your DeepSeek API Key.';
-                } else if (res.status === 429) {
-                    return 'Error: Too many requests. Please wait a moment and try again.';
-                } else if (res.status >= 500) {
-                    return 'Error: AI service is currently unavailable (server error). Please try again later.';
-                } else {
-                    return `Error: AI service request failed (Status: ${res.status}). Please try again.`;
-                }
-            }
-        } catch (err) {
-            console.error('Network error or issue fetching from DeepSeek API:', err);
-            return 'Error: Could not connect to AI service. Please check your network connection.';
-        }
-    }
-
     if(chatForm){
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const text = chatInput.value.trim();
-            if(!text) return;
-            appendMessage('user', text);
+            const userText = chatInput.value.trim();
+            if(!userText) return;
+            appendMessage('user', userText);
             chatInput.value = '';
-            const reply = await fetchDeepSeek(text);
-            appendMessage('ai', reply);
+            
+            appendMessage('ai', 'Thinking...'); // Temporary message
+
+            const hfResponse = await fetchHuggingFaceModel('microsoft/DialoGPT-medium', userText);
+            
+            // Remove "Thinking..." message
+            const thinkingMessage = Array.from(chatMessages.children).find(child => child.textContent === 'Thinking...' && child.classList.contains('ai'));
+            if (thinkingMessage) {
+                chatMessages.removeChild(thinkingMessage);
+            }
+
+            if (hfResponse.error) {
+                appendMessage('ai', hfResponse.error);
+            } else if (hfResponse && Array.isArray(hfResponse) && hfResponse[0] && hfResponse[0].generated_text) {
+                appendMessage('ai', hfResponse[0].generated_text);
+            } else if (hfResponse && hfResponse.generated_text) { // Fallback, though DialoGPT usually returns the array structure
+                appendMessage('ai', hfResponse.generated_text);
+            } else {
+                appendMessage('ai', 'AI returned an unexpected response.');
+                console.log('Unexpected HuggingFace chat response:', hfResponse);
+            }
         });
     }
 
@@ -295,15 +309,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const summaryBtn = document.getElementById('summaryBtn');
     const summaryInput = document.getElementById('summaryInput');
     const summaryOutput = document.getElementById('summaryOutput');
+    const summaryHeader = document.querySelector('#ai-tools h3.gradient-text');
+    const summaryPara = document.querySelector('#ai-tools p.w3-center');
+
+    if(summaryHeader) summaryHeader.textContent = 'AI Summary (Hugging Face)';
+    if(summaryPara) summaryPara.textContent = 'Paste text and let Hugging Face (bart-large-cnn) create a short summary.';
+
 
     if(summaryBtn){
         summaryBtn.addEventListener('click', async () => {
             const text = summaryInput.value.trim();
-            if(!text) return;
+            if(!text) {
+                 summaryOutput.textContent = 'Please enter text to summarize.';
+                 return;
+            }
             summaryOutput.textContent = 'Summarizing...';
-            const prompt = 'Summarize the following text in a short paragraph:\n' + text;
-            const reply = await fetchDeepSeek(prompt);
-            summaryOutput.textContent = reply;
+            const hfResponse = await fetchHuggingFaceModel('facebook/bart-large-cnn', text);
+
+            if (hfResponse.error) {
+                summaryOutput.textContent = hfResponse.error;
+            } else if (hfResponse && Array.isArray(hfResponse) && hfResponse[0] && hfResponse[0].summary_text) {
+                summaryOutput.textContent = hfResponse[0].summary_text;
+            } else {
+                summaryOutput.textContent = 'AI returned an unexpected response for summary.';
+                console.log('Unexpected HuggingFace summary response:', hfResponse);
+            }
         });
     }
 
@@ -312,18 +342,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const translateInput = document.getElementById('translateInput');
     const translateLang = document.getElementById('translateLang');
     const translateOutput = document.getElementById('translateOutput');
+    const translateHeader = document.querySelector('#ai-translate h3.gradient-text');
+    const translatePara = document.querySelector('#ai-translate p.w3-center');
+
+    if(translateHeader) translateHeader.textContent = 'AI Translator (Hugging Face)';
+    if(translatePara) translatePara.textContent = 'Translate text using Hugging Face Helsinki-NLP models.';
+
 
     if(translateBtn){
         translateBtn.addEventListener('click', async () => {
-            const text = translateInput.value.trim();
-            const lang = translateLang.value;
-            if(!text) return;
+            const textToTranslate = translateInput.value.trim();
+            const targetLang = translateLang.value;
+            let modelId = '';
+
+            if (!textToTranslate) {
+                translateOutput.textContent = 'Please enter text to translate.';
+                return;
+            }
+
+            if (targetLang === 'Spanish') {
+                modelId = 'Helsinki-NLP/opus-mt-en-es';
+            } else if (targetLang === 'French') {
+                modelId = 'Helsinki-NLP/opus-mt-en-fr';
+            } else if (targetLang === 'Chinese') {
+                modelId = 'Helsinki-NLP/opus-mt-en-zh';
+            } else if (targetLang === 'German') {
+                modelId = 'Helsinki-NLP/opus-mt-en-de';
+            } else if (targetLang === 'Bengali') { // This implies English to Bengali
+                modelId = 'Helsinki-NLP/opus-mt-en-bn';
+            } else if (targetLang === 'English_from_Bengali') { // Explicit Bengali to English
+                modelId = 'Helsinki-NLP/opus-mt-bn-en';
+            } else {
+                translateOutput.textContent = 'Translation for the selected language is not yet configured.';
+                return;
+            }
+            
             translateOutput.textContent = 'Translating...';
-            const prompt = 'Translate the following text to ' + lang + ':\n' + text;
-            const reply = await fetchDeepSeek(prompt);
-            translateOutput.textContent = reply;
+            const hfResponse = await fetchHuggingFaceModel(modelId, textToTranslate);
+
+            if (hfResponse.error) {
+                translateOutput.textContent = hfResponse.error;
+            } else if (hfResponse && Array.isArray(hfResponse) && hfResponse[0] && hfResponse[0].translation_text) {
+                translateOutput.textContent = hfResponse[0].translation_text;
+            } else {
+                translateOutput.textContent = 'AI returned an unexpected response for translation.';
+                console.log('Unexpected HuggingFace translation response:', hfResponse);
+            }
         });
     }
 
 });
-
