@@ -141,6 +141,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Pre-fetch chat widget elements so dark mode logic can access them
+    const chatToggle = document.getElementById('aiChatToggle');
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatForm = document.getElementById('aiChatForm');
+    const chatInput = document.getElementById('aiChatInput');
+    const chatMessages = document.getElementById('aiChatMessages');
+
     // Dark mode toggle
     const darkToggle = document.getElementById('darkModeToggle');
     if(darkToggle){
@@ -208,12 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // AI Chat integration
-    const chatToggle = document.getElementById('aiChatToggle');
-    const chatWidget = document.getElementById('aiChatWidget');
-    const chatClose = document.getElementById('aiChatClose');
-    const chatForm = document.getElementById('aiChatForm');
-    const chatInput = document.getElementById('aiChatInput');
-    const chatMessages = document.getElementById('aiChatMessages');
     document.body.classList.add('anim-bg');
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
