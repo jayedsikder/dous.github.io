@@ -121,6 +121,28 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
+    // Scroll progress bar and back to top
+    const progressBar = document.getElementById('scrollProgressBar');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = docHeight ? (scrollTop / docHeight) * 100 : 0;
+        if(progressBar){
+            progressBar.style.width = progress + '%';
+        }
+        if(backToTopBtn){
+            backToTopBtn.style.display = scrollTop > 300 ? 'block' : 'none';
+        }
+    });
+
+    if(backToTopBtn){
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     // Dark mode toggle
     const darkToggle = document.getElementById('darkModeToggle');
     if(darkToggle){
@@ -231,6 +253,22 @@ document.addEventListener('DOMContentLoaded', function() {
             chatInput.value = '';
             const reply = await fetchDeepSeek(text);
             appendMessage('ai', reply);
+        });
+    }
+
+    // AI Summary tool
+    const summaryBtn = document.getElementById('summaryBtn');
+    const summaryInput = document.getElementById('summaryInput');
+    const summaryOutput = document.getElementById('summaryOutput');
+
+    if(summaryBtn){
+        summaryBtn.addEventListener('click', async () => {
+            const text = summaryInput.value.trim();
+            if(!text) return;
+            summaryOutput.textContent = 'Summarizing...';
+            const prompt = 'Summarize the following text in a short paragraph:\n' + text;
+            const reply = await fetchDeepSeek(prompt);
+            summaryOutput.textContent = reply;
         });
     }
 

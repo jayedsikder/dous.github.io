@@ -121,9 +121,31 @@
             cursor: pointer;
             z-index: 1000;
         }
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: linear-gradient(90deg, #00f, #0ff);
+            z-index: 1001;
+        }
+        #backToTop {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        #summaryOutput {
+            white-space: pre-line;
+        }
     </style>
 </head>
 <body>
+
+<div id="scrollProgressBar"></div>
+<button id="backToTop" class="w3-button w3-blue" aria-label="Back to top">&uarr;</button>
 
 <nav class="w3-top">
     <div class="w3-bar" id="myNavbar">
@@ -700,9 +722,17 @@
           </div>
           <hr> 
         </aside> 
-      </div> 
-    </div> 
-  </section> 
+      </div>
+    </div>
+  </section>
+
+  <section class="w3-content w3-container w3-padding-64 reveal-on-scroll" id="ai-tools">
+    <h3 class="w3-center gradient-text">AI Summary</h3>
+    <p class="w3-center">Paste text and let DeepSeek create a short summary.</p>
+    <textarea id="summaryInput" class="w3-input w3-border" rows="5" placeholder="Enter text..."></textarea>
+    <button id="summaryBtn" class="w3-button w3-blue w3-margin-top">Summarize</button>
+    <div id="summaryOutput" class="w3-margin-top"></div>
+  </section>
 </main>
 
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'"> <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span> <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"> <img id="img01" class="w3-image"> <p id="caption" class="w3-opacity w3-large"></p> </div> </div>
