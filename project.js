@@ -2,13 +2,18 @@ var http = require('http');
 var formidable = require('formidable');
 var url = require('url');
 var fs = require('fs');
+var path = require('path');
 
 http.createServer((req, res) => {
 if (req.url == '/fileupload') {
    var form = new formidable.IncomingForm();
    form.parse(req, (err, fields, files) => {
       var oldpath = files.filetoupload.filepath;
-      var newpath = 'https://github.com/jayedsikder/dous.github.io/' + files.filetoupload.originalFilename;
+      var uploadDir = path.join(__dirname, 'uploads');
+      if (!fs.existsSync(uploadDir)) {
+         fs.mkdirSync(uploadDir, { recursive: true });
+      }
+      var newpath = path.join(uploadDir, files.filetoupload.originalFilename);
       fs.rename(oldpath, newpath, (err) => {
        if (err) throw err;
       res.write('<h1>File uploaded and moved!</h1><br><button onclick="history.back()">GO Back</button>');
